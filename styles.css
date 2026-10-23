@@ -18,7 +18,8 @@
     --font-text: "Inter", sans-serif;
 }
 body{
-    margin: 0;
+  background-image: url(imagenes/fondo222222.png);
+  margin: 0;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -28,4 +29,60 @@ h1, h2, h3 { font-family: 'Eugusto'; }
 
 body, p, a, button, input { 
 font-family: var(--font-text); 
+}
+
+/* Efecto cristal BoronVino */
+.cristal {
+    /* Vidrio translúcido */
+    background: rgba(239, 210, 175, 0.08);
+ 
+    /* Desenfoque del fondo */
+    backdrop-filter: blur(18px) saturate(150%);
+    -webkit-backdrop-filter: blur(18px) saturate(150%);
+ 
+    /* Borde iluminado */
+    border: 1px solid rgba(239, 210, 175, 0.35);
+    border-radius: 24px;
+ 
+    /* Profundidad y reflejos */
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.25),
+        inset 0 1px 1px rgba(236, 231, 211, 0.25),
+        inset 0 0 20px rgba(239, 210, 175, 0.03);
+ 
+    color: var(--blanco-marfil);
+    position: relative;
+    overflow: hidden;
+}
+ 
+/* Reflejo sutil en la parte superior */
+.cristal::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 8%;
+    width: 84%;
+    height: 1px;
+ 
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(239, 210, 175, 0.55),
+        transparent
+    );
+}
+ 
+/* Contenido por encima de los reflejos */
+.cristal > * {
+    position: relative;
+    z-index: 1;
+}
+ 
+.cristal h2 {
+    color: var(--crema-suave);
+}
+ 
+.cristal p {
+    color: var(--blanco-marfil);
+    line-height: 1.7;
 }
