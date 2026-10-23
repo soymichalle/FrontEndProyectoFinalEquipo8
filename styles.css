@@ -1,0 +1,31 @@
+@font-face {
+  font-family: 'Eugusto';
+  src: url('fonts/Eugusto\ Free\ Font.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  box-sizing: border-box;
+}
+:root {
+    --vino-tinto: #3A0713;
+    --blanco-marfil: #ECE7D3;
+    --crema-suave: #EFD2AF;
+    --terracota: #C1673B;
+    --verde-oliva: #868E5B;
+    --font-title: "Eugusto Regular", serif; 
+    --font-text: "Inter", sans-serif;
+}
+body{
+    margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+}
+h1, h2, h3 { font-family: 'Eugusto'; } 
+
+body, p, a, button, input { 
+font-family: var(--font-text); 
+}
