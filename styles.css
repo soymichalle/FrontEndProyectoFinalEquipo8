@@ -86,3 +86,9 @@ font-family: var(--font-text);
     color: var(--blanco-marfil);
     line-height: 1.7;
 }
+
+.carousel-inner img {
+max-height: 450px;
+object-fit: contain;
+margin: 0 auto;
+}
