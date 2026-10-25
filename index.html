@@ -24,13 +24,28 @@
 
 <body>
 
-    <!-- HEADER -->
-    <header>
-        <nav class="navbar">
-            <!-- Logo y enlaces de navegación -->
+   <!-- HEADER FLOTANTE (JOHAN) -->
+    <header class="header-flotante-container">
+        <nav class="nav-flotante cristal">
+            <div class="logo">
+                <a href="#inicio" class="text-decoration-none">
+                    <span class="fw-bold">BORONVINO</span>
+                </a>
+            </div>
+            
+            <ul class="nav-links m-0 p-0">
+                <li><a href="#origen">Origen</a></li>
+                <li><a href="#nos-define">Lo que nos define</a></li>
+                <li><a href="#nuestros-vinos">Nuestros Vinos</a></li>
+                <li><a href="#equipo">Equipo</a></li>
+            </ul>
+
+            <div class="nav-acciones">
+                <a href="#botonTOcatalogo" class="btn btn-terracota">Tienda</a>
+            </div>
         </nav>
     </header>
-
+    
     <main>
 
         <!-- ORIGEN -->
@@ -223,12 +238,46 @@
 
     </main>
 
-    <!-- FOOTER -->
-    <footer>
-        <div class="container">
-            <!-- Logo, enlaces y lo que sea -->
-            <p>&copy; 2026 BoronVino. Todos los derechos reservados.</p>
+    <!-- FOOTER (JOHAN) -->
+  <footer class="footer-boronvino cristal mt-5 py-5">
+      <div class="container">
+        <div class="row g-4 align-items-start">
+          
+          <!-- Columna 1: Marca y descripción -->
+          <div class="col-12 col-md-4">
+            <h3 class="fw-bold mb-3 footer-brand">BORONVINO</h3>
+            <p class="footer-text">
+              Vino artesanal elaborado con tradición, dedicación y apoyo a las familias campesinas y pequeños productores del Valle del Cauca.
+            </p>
+          </div>
+          
+          <!-- Columna 2: Enlaces de navegación -->
+          <div class="col-12 col-md-4 text-md-center">
+            <h5 class="fw-bold mb-3 footer-subtitle">Navegación</h5>
+            <ul class="list-unstyled footer-menu">
+              <li class="mb-2"><a href="#origen" class="footer-link">Origen</a></li>
+              <li class="mb-2"><a href="#nos-define" class="footer-link">Lo que nos define</a></li>
+              <li class="mb-2"><a href="#nuestros-vinos" class="footer-link">Nuestros Vinos</a></li>
+              <li class="mb-2"><a href="#equipo" class="footer-link">Equipo</a></li>
+            </ul>
+          </div>
+          
+          <!-- Columna 3: Información de contacto -->
+          <div class="col-12 col-md-4 text-md-end">
+            <h5 class="fw-bold mb-3 footer-subtitle">Contacto</h5>
+            <p class="mb-1 footer-text">Valle del Cauca, Colombia</p>
+            <p class="mb-2 footer-text">info@boronvino.com</p>
+            <a href="#botonTOcatalogo" class="btn btn-sm btn-terracota mt-2">Visitar Tienda</a>
+          </div>
+
         </div>
+        
+        <hr class="my-4 footer-divider">
+        
+        <div class="text-center">
+          <p class="m-0 footer-copy">&copy; 2026 BoronVino. Todos los derechos reservados.</p>
+        </div>
+      </div>
     </footer>
 
     <!-- Bootstrap JS -->
