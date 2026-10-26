@@ -1,132 +1,141 @@
+* {
+  box-sizing: border-box;
+}
+
 @font-face {
   font-family: 'Eugusto';
-  src: url('fonts/Eugusto\ Free\ Font.otf') format('truetype');
+  src: url('./fonts/Eugusto%20Free%20Font.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
 }
 
-* {
-  box-sizing: border-box;
-}
 :root {
-    --vino-tinto: #3A0713;
-    --blanco-marfil: #ECE7D3;
-    --crema-suave: #EFD2AF;
-    --terracota: #C1673B;
-    --verde-oliva: #868E5B;
-    --font-title: "Eugusto Regular", serif; 
-    --font-text: "Inter", sans-serif;
+  --vino-tinto: #3A0713;
+  --blanco-marfil: #ECE7D3;
+  --crema-suave: #EFD2AF;
+  --terracota: #C1673B;
+  --verde-oliva: #868E5B;
+
+  --font-title: 'Eugusto', serif;
+  --font-text: 'Inter', sans-serif;
 }
-body{
-  background-image: url(imagenes/fondo222222.png);
+
+body {
   margin: 0;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-
+  background-color: var(--vino-tinto);
+  background-image: url("./imagenes/fondo222222.png");
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 }
-h1, h2, h3 { font-family: 'Eugusto'; } 
 
-body, p, a, button, input { 
-font-family: var(--font-text); 
+.main {
+  padding-top: 150px;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-title);
+  letter-spacing: 3px;
+}
+
+body,
+p,
+a,
+button,
+input {
+  font-family: var(--font-text);
 }
 
 /* Efecto cristal BoronVino */
 .cristal {
-    /* Vidrio translúcido */
-    background: rgba(239, 210, 175, 0.08);
- 
-    /* Desenfoque del fondo */
-    backdrop-filter: blur(18px) saturate(150%);
-    -webkit-backdrop-filter: blur(18px) saturate(150%);
- 
-    /* Borde iluminado */
-    border: 1px solid rgba(239, 210, 175, 0.35);
-    border-radius: 24px;
- 
-    /* Profundidad y reflejos */
-    box-shadow:
-        0 8px 32px rgba(0, 0, 0, 0.25),
-        inset 0 1px 1px rgba(236, 231, 211, 0.25),
-        inset 0 0 20px rgba(239, 210, 175, 0.03);
- 
-    color: var(--blanco-marfil);
-    position: relative;
-    overflow: hidden;
+
+  /* Vidrio translúcido */
+  background: rgba(239, 210, 175, 0.08);
+
+  /* Desenfoque del fondo */
+  backdrop-filter: blur(18px) saturate(150%);
+  -webkit-backdrop-filter: blur(18px) saturate(150%);
+
+  /* Borde iluminado */
+  border: 1px solid rgba(239, 210, 175, 0.35);
+  border-radius: 24px;
+
+  /* Profundidad y reflejos */
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.25),
+    inset 0 1px 1px rgba(236, 231, 211, 0.25),
+    inset 0 0 20px rgba(239, 210, 175, 0.03);
+
+  color: var(--blanco-marfil);
+  position: relative;
+  overflow: hidden;
 }
- 
+
 /* Reflejo sutil en la parte superior */
 .cristal::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 8%;
-    width: 84%;
-    height: 1px;
- 
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(239, 210, 175, 0.55),
-        transparent
-    );
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 8%;
+  width: 84%;
+  height: 1px;
+
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(239, 210, 175, 0.55),
+      transparent);
 }
- 
-/* Contenido por encima de los reflejos */
-.cristal > * {
-    position: relative;
-    z-index: 1;
-}
- 
+
 .cristal h2 {
-    color: var(--crema-suave);
+  color: var(--crema-suave);
 }
- 
+
 .cristal p {
-    color: var(--blanco-marfil);
-    line-height: 1.7;
+  color: var(--blanco-marfil);
+  line-height: 1.7;
 }
 
 .carousel-inner img {
-max-height: 450px;
-object-fit: contain;
-margin: 0 auto;
+  max-height: 450px;
+  object-fit: contain;
+  margin: 0 auto;
 }
 
-johan/mi-avance
 /* NAVBAR FLOTANTE (JOHAN)*/
 .header-flotante-container {
   position: fixed;
-  top: 18px;
-  left: 0;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  z-index: 1050;
-  padding: 0 16px;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 40px);
+  max-width: 1400px;
+  z-index: 99999;
 }
 
-.nav-flotante {
+.header-flotante-container .navbar>.container {
+  width: calc(100% - 40px);
+  top: 15px;
+  left: 50%;
+  max-width: 1400px;
+  min-height: 48px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
-  max-width: 1100px;
-  padding: 10px 28px;
-  border-radius: 50px;
-}
-
-.nav-flotante .logo span {
-  letter-spacing: 1.5px;
-  font-size: 1.25rem;
-  color: var(--crema-suave);
-  font-family: var(--font-title);
+  gap: 28px;
 }
 
 .nav-links {
   display: flex;
-  gap: 24px;
+  align-items: center;
+  gap: 30px;
   list-style: none;
+  white-space: nowrap;
 }
 
 .nav-links a {
@@ -141,6 +150,15 @@ johan/mi-avance
   color: var(--terracota);
 }
 
+/* LOGO MÁS GRANDE */
+.header-flotante-container .navbar-brand img {
+  height: 45px;
+  width: auto;
+  max-width: none;
+  object-fit: contain;
+  display: block;
+}
+
 .btn-terracota {
   background-color: var(--terracota);
   color: #ffffff;
@@ -153,20 +171,36 @@ johan/mi-avance
 }
 
 .btn-terracota:hover {
-  opacity: 0.9;
+  background-color: var(--verde-oliva);
   color: #ffffff;
   transform: scale(1.03);
 }
 
-/* Espacio superior para que el nav flotante no tape la primera sección */
-main {
-  padding-top: 110px;
+.equipo {
+  background: rgba(58, 7, 19, 0.94);
+  color: var(--blanco-marfil);
+  padding: 55px 35px;
+  border: 1px solid rgba(239, 210, 175, 0.2);
+  border-radius: 24px;
+}
+
+.origen {
+  padding: 55px 35px;
+  border-radius: 24px;
+}
+
+.origen .container .cristal{
+  background-color: var(--crema-suave);
 }
 
 /* FOOTER (JOHAN) */
 .footer-boronvino {
-  border-radius: 24px 24px 0 0;
-  margin-top: 60px;
+  width: calc(100% - 40px);
+  margin: 60px auto 20px;
+  padding: 40px 0 20px;
+  border: 1px solid rgba(239, 210, 175, 0.25);
+  border-radius: 32px;
+  color: var(--blanco-marfil);
 }
 
 .footer-link {
@@ -178,24 +212,16 @@ main {
 .footer-link:hover {
   color: var(--terracota);
 }
-/* Empujar el contenido hacia abajo para que el navbar flotante no lo tape */
-main {
-  padding-top: 140px;
-}
 
 /* Dar contraste legible a la sección origen sobre el fondo oscuro */
-#origen h1,
-#origen p {
-  color: var(--blanco-marfil);
+#origen h2 {
+  color: var(--vino-tinto);
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
 }
 
-/* ESTILOS COMPLETOS DEL FOOTER (JOHAN) */
-.footer-boronvino {
-  margin-top: 80px;
-  border-radius: 32px 32px 0 0;
-  border-bottom: none;
-  padding-bottom: 25px;
+#origen p {
+  color: var(--vino-tinto);
+  text-align: justify;
 }
 
 .footer-brand {
@@ -230,32 +256,4 @@ main {
   color: var(--blanco-marfil);
   font-size: 0.85rem;
   opacity: 0.75;
-}
-
-@media (max-width: 768px) {
-  .footer-boronvino .text-md-center,
-  .footer-boronvino .text-md-end {
-    text-align: left !important;
-  }
-
-.equipo {
-    background: rgba(58, 7, 19, 0.94);
-    color: var(--blanco-marfil);
-    padding: 55px 35px;
-    border: 1px solid rgba(239, 210, 175, 0.2);
-    border-radius: 24px;
-}
-
-
-
-.origen {
-
-    color: var(--blanco-marfil);
-    padding: 55px 35px;
-    border: 1px solid rgba(239, 210, 175, 0.2);
-    border-radius: 24px;
-  }   
-    
-main {
-  padding-top: 140px;
 }

@@ -7,12 +7,10 @@
 
     <title>Sobre nosotros | BoronVino</title>
 
-    <!-- TODO: Agregar las fuentes -->
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Google Fonts: Eugusto Regular e Inter -->
 
     <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -24,52 +22,63 @@
 
 <body>
 
-   <!-- HEADER FLOTANTE (JOHAN) -->
-    <header class="header-flotante-container">
-        <nav class="nav-flotante cristal">
-            <div class="logo">
-                <a href="#inicio" class="text-decoration-none">
-                    <span class="fw-bold">BORONVINO</span>
-                </a>
-            </div>
-            
-            <ul class="nav-links m-0 p-0">
-                <li><a href="#origen">Origen</a></li>
-                <li><a href="#nos-define">Lo que nos define</a></li>
-                <li><a href="#nuestros-vinos">Nuestros Vinos</a></li>
-                <li><a href="#equipo">Equipo</a></li>
-            </ul>
+    <!-- HEADER FLOTANTE (JOHAN) -->
+    <header class="header-flotante-container p-5">
+        <nav class="navbar cristal navbar-expand-lg navbar-light">
+            <div class="container">
+                
+                <div class="navbar-brand">
+                    <a href="#inicio" class="navbar-brand">
+                        <img src="imagenes/logonegativo.svg" alt="Isotipo BoronVino en negativo">
+                    </a>
+                </div>
 
-            <div class="nav-acciones">
-                <a href="#botonTOcatalogo" class="btn btn-terracota">Tienda</a>
+                <ul class="nav-links m-0 p-0">
+                    <li><a href="#origen">Origen</a></li>
+                    <li><a href="#nos-define">Lo que nos define</a></li>
+                    <li><a href="#nuestros-vinos">Nuestros Vinos</a></li>
+                    <li><a href="#equipo">Equipo</a></li>
+                </ul>
+
+                <div class="nav-acciones">
+                    <a href="#botonTOcatalogo" class="btn btn-terracota">Tienda</a>
+                </div>
             </div>
         </nav>
     </header>
-    
-    <main>
+
+    <main class="main">
 
         <!-- ORIGEN -->
         <section id="origen" class="origen py-5">
             <div class="container">
-                <div class="cristal py-5 px-4">
+                <div class="container cristal py-5 px-4">
 
-                    <h2 id="tituloOrigen" class="text-center fw-bold mb-4">EL ORIGEN</h2>
+                    <h2 class="text-center mb-4">EL ORIGEN</h2>
 
                     <div class="row g-4">
 
-                        <div class="col-12 col-md-6">
+                        <div class="col-12 col-md-6 p-4">
                             <div class="parrafoOrigen">
                                 <p class="lead">
-                                    BoronVino nació entre viñedos y tradiciones. En las tierras fértiles del Valle del Cauca, donde el sol acaricia las uvas Isabella y las familias campesinas heredan el arte de fermentar, decidimos crear un espacio para que sus historias llegaran más lejos. No somos una bodega industrial: somos el puente entre el trabajo de manos artesanas y tu mesa.
+                                    BoronVino nació entre viñedos y tradiciones. En las tierras fértiles del Valle del
+                                    Cauca, donde el sol acaricia las uvas Isabella y las familias campesinas heredan el
+                                    arte de fermentar, decidimos crear un espacio para que sus historias llegaran más
+                                    lejos. No somos una bodega industrial: somos el puente entre el trabajo de manos
+                                    artesanas y tu mesa.
                                 </p>
 
                             </div>
                         </div>
 
-                        <div class="col-12 col-md-6">
+                        <div class="col-12 col-md-6 p-4">
                             <div class="parrafoOrigen">
                                 <p class="lead">
-                                    Cada botella es un pedazo de nuestra tierra. Lo que empezó como un proyecto entre amigos apasionados por el vino artesanal, hoy es una vitrina para los pequeños productores vallunos. Creemos que detrás de cada sorbo hay una familia, una cosecha y una tradición que merece ser contada. Por eso seleccionamos cada vino, café y fruta con el mismo cuidado con el que se elige un buen abrazo.
+                                    Cada botella es un pedazo de nuestra tierra. Lo que empezó como un proyecto entre
+                                    amigos apasionados por el vino artesanal, hoy es una vitrina para los pequeños
+                                    productores vallunos. Creemos que detrás de cada sorbo hay una familia, una cosecha
+                                    y una tradición que merece ser contada. Por eso seleccionamos cada vino, café y
+                                    fruta con el mismo cuidado con el que se elige un buen abrazo.
                                 </p>
 
                             </div>
@@ -84,7 +93,7 @@
         <section id="nos-define" class="py-5">
             <div class="cristal py-5">
                 <div class="container text-center">
-                    <h2 class="mb-5 fw-bold">LO QUE NOS DEFINE</h2>
+                    <h2 class="mb-5">LO QUE NOS DEFINE</h2>
 
                     <div class="row g-4">
 
@@ -239,45 +248,46 @@
     </main>
 
     <!-- FOOTER (JOHAN) -->
-  <footer class="footer-boronvino cristal mt-5 py-5">
-      <div class="container">
-        <div class="row g-4 align-items-start">
-          
-          <!-- Columna 1: Marca y descripción -->
-          <div class="col-12 col-md-4">
-            <h3 class="fw-bold mb-3 footer-brand">BORONVINO</h3>
-            <p class="footer-text">
-              Vino artesanal elaborado con tradición, dedicación y apoyo a las familias campesinas y pequeños productores del Valle del Cauca.
-            </p>
-          </div>
-          
-          <!-- Columna 2: Enlaces de navegación -->
-          <div class="col-12 col-md-4 text-md-center">
-            <h5 class="fw-bold mb-3 footer-subtitle">Navegación</h5>
-            <ul class="list-unstyled footer-menu">
-              <li class="mb-2"><a href="#origen" class="footer-link">Origen</a></li>
-              <li class="mb-2"><a href="#nos-define" class="footer-link">Lo que nos define</a></li>
-              <li class="mb-2"><a href="#nuestros-vinos" class="footer-link">Nuestros Vinos</a></li>
-              <li class="mb-2"><a href="#equipo" class="footer-link">Equipo</a></li>
-            </ul>
-          </div>
-          
-          <!-- Columna 3: Información de contacto -->
-          <div class="col-12 col-md-4 text-md-end">
-            <h5 class="fw-bold mb-3 footer-subtitle">Contacto</h5>
-            <p class="mb-1 footer-text">Valle del Cauca, Colombia</p>
-            <p class="mb-2 footer-text">info@boronvino.com</p>
-            <a href="#botonTOcatalogo" class="btn btn-sm btn-terracota mt-2">Visitar Tienda</a>
-          </div>
+    <footer class="footer-boronvino cristal mt-5 py-5">
+        <div class="container">
+            <div class="row g-4 align-items-start">
 
+                <!-- Columna 1: Marca y descripción -->
+                <div class="col-12 col-md-4">
+                    <h3 class="fw-bold mb-3 footer-brand">BORONVINO</h3>
+                    <p class="footer-text">
+                        Vino artesanal elaborado con tradición, dedicación y apoyo a las familias campesinas y pequeños
+                        productores del Valle del Cauca.
+                    </p>
+                </div>
+
+                <!-- Columna 2: Enlaces de navegación -->
+                <div class="col-12 col-md-4 text-md-center">
+                    <h5 class="fw-bold mb-3 footer-subtitle">Navegación</h5>
+                    <ul class="list-unstyled footer-menu">
+                        <li class="mb-2"><a href="#origen" class="footer-link">Origen</a></li>
+                        <li class="mb-2"><a href="#nos-define" class="footer-link">Lo que nos define</a></li>
+                        <li class="mb-2"><a href="#nuestros-vinos" class="footer-link">Nuestros Vinos</a></li>
+                        <li class="mb-2"><a href="#equipo" class="footer-link">Equipo</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna 3: Información de contacto -->
+                <div class="col-12 col-md-4 text-md-end">
+                    <h5 class="fw-bold mb-3 footer-subtitle">Contacto</h5>
+                    <p class="mb-1 footer-text">Valle del Cauca, Colombia</p>
+                    <p class="mb-2 footer-text">info@boronvino.com</p>
+                    <a href="#botonTOcatalogo" class="btn btn-sm btn-terracota mt-2">Visitar Tienda</a>
+                </div>
+
+            </div>
+
+            <hr class="my-4 footer-divider">
+
+            <div class="text-center">
+                <p class="m-0 footer-copy">&copy; 2026 BoronVino. Todos los derechos reservados.</p>
+            </div>
         </div>
-        
-        <hr class="my-4 footer-divider">
-        
-        <div class="text-center">
-          <p class="m-0 footer-copy">&copy; 2026 BoronVino. Todos los derechos reservados.</p>
-        </div>
-      </div>
     </footer>
 
     <!-- Bootstrap JS -->
