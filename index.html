@@ -26,7 +26,7 @@
     <header class="header-flotante-container p-5">
         <nav class="navbar cristal navbar-expand-lg navbar-light">
             <div class="container">
-                
+
                 <div class="navbar-brand">
                     <a href="#inicio" class="navbar-brand">
                         <img src="imagenes/logonegativo.svg" alt="Isotipo BoronVino en negativo">
@@ -91,13 +91,13 @@
 
         <!-- LO QUE NOS DEFINE -->
         <section id="nos-define" class="py-5">
-            <div class="cristal py-5">
-                <div class="container text-center">
-                    <h2 class="mb-5">LO QUE NOS DEFINE</h2>
+            <div class="container text-center">
+                <h2 class="mb-5" style="color: var(--blanco-marfil);">Lo que nos define</h2>
 
-                    <div class="row g-4">
+                <div class="row g-4">
 
-                        <div class="col-12 col-md-4">
+                    <div class="col-12 col-md-4">
+                        <div class="cristal py-5">
                             <div class="p-3">
                                 <img src="imagenes/icono1.svg" alt="Apoyo Local" class="img-fluid mb-3"
                                     style="max-width: 80px;">
@@ -106,8 +106,10 @@
                                 </p>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="col-12 col-md-4">
+                    <div class="col-12 col-md-4">
+                        <div class="cristal py-5">
                             <div class="p-3">
                                 <img src="imagenes/icono3.svg" alt="Especialización" class="img-fluid mb-3"
                                     style="max-width: 80px;">
@@ -115,8 +117,10 @@
                                 <p>Expertos en vinos artesanales de uva Isabella, café y frutas de la región.</p>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="col-12 col-md-4">
+                    <div class="col-12 col-md-4">
+                        <div class="cristal py-5">
                             <div class="p-3">
                                 <img src="imagenes/icono2.svg" alt="Historias con Origen" class="img-fluid mb-3"
                                     style="max-width: 80px;">
@@ -131,53 +135,74 @@
 
         <!-- NUESTROS VINOS -->
         <section id="nuestros-vinos">
-                <div class="container">
-                    <div class="row text-center">
-                        <h2 id="title_carrusel">NUESTROS VINOS</h2>
-                    </div>
-                    <!-- Carrusel -->
-                    <div id="carruselFrutas" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-inner">
-                            <!-- Divs para imagenes de frutas -->
-                            <div id="foto1_vinoCafe" class="carousel-item active">
-                                <img class="d-block w-75  mx-auto img-fluid"
-                                    src="/images-carrusel-aboutUs/foto-vinoCafe-aboutUs.png" alt="Imagen Vino de Cafe">
-                            </div>
-                            <div id="foto2_vinoUva" class="carousel-item">
-                                <img class="d-block w-75 mx-auto img-fluid"
-                                    src="/images-carrusel-aboutUs/foto-vinoUva-aboutUs.png"
-                                    alt="Imagen de vino de uva Isabel">
-                            </div>
-                            <div id="foto3_vinoMaracuya" class="carousel-item">
-                                <img class="d-block w-75 mx-auto img-fluid"
-                                    src="/images-carrusel-aboutUs/foto-vinoMaracuya-aboutUs.png"
-                                    alt="Imagen de vino de maracuyá">
-                            </div>
-
-                            <!-- Flecha anterior -->
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carruselFrutas"
-                                data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon"></span>
-                            </button>
-                            <!-- Flecha siguiente -->
-                            <button class="carousel-control-next" type="button" data-bs-target="#carruselFrutas"
-                                data-bs-slide="next">
-                                <span class="carousel-control-next-icon"></span>
-                            </button>
-
+            <div class="container">
+                <div class="row text-center">
+                    <h2 id="title_carrusel">NUESTROS VINOS</h2>
+                </div>
+                <!-- Carrusel -->
+                <div id="carruselFrutas" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <!-- Divs para imagenes de frutas -->
+                        <div id="foto1_vinoCafe" class="carousel-item active">
+                            <img class="d-block w-75  mx-auto img-fluid"
+                                src="/images-carrusel-aboutUs/foto-vinoCafe-aboutUs.png" alt="Imagen Vino de Cafe">
                         </div>
+                        <div id="foto2_vinoUva" class="carousel-item">
+                            <img class="d-block w-75 mx-auto img-fluid"
+                                src="/images-carrusel-aboutUs/foto-vinoUva-aboutUs.png"
+                                alt="Imagen de vino de uva Isabel">
+                        </div>
+                        <div id="foto3_vinoMaracuya" class="carousel-item">
+                            <img class="d-block w-75 mx-auto img-fluid"
+                                src="/images-carrusel-aboutUs/foto-vinoMaracuya-aboutUs.png"
+                                alt="Imagen de vino de maracuyá">
+                        </div>
+
+                        <!-- Flecha anterior -->
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carruselFrutas"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon"></span>
+                        </button>
+                        <!-- Flecha siguiente -->
+                        <button class="carousel-control-next" type="button" data-bs-target="#carruselFrutas"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                        </button>
+
                     </div>
-                </div>
-                <!-- Botón "Ver Catálogo" -->
-                <div id="botonTOcatalogo" class="container">
-                    <div class="hero-content">
-                        <h4>Descubre nuestros vinos artesanales</h4>
-                        <button class="btn btn-danger">Ver catálogo</button>
+                    <div id="foto2_vinoUva" class="carousel-item">
+                        <img class="d-block w-80 h-10 img-fluid shadow-lg rounded"
+                            src="/images-carrusel-aboutUs/foto-vinoUva-aboutUs.png" alt="Imagen de vino de uva Isabel">
+                    </div>
+                    <div id="foto3_vinoMaracuya" class="carousel-item">
+                        <img class="d-block w-80 h-10 img-fluid shadow-lg rounded"
+                            src="/images-carrusel-aboutUs/foto-vinoMaracuya-aboutUs.png"
+                            alt="Imagen de vino de maracuyá">
                     </div>
 
-                </div>
+                    <!-- Flecha anterior -->
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carruselFrutas"
+                        data-bs-slide="next">
+                        <span class="carousel-control-prev-icon"></span>
+                    </button>
+                    <!-- Flecha siguiente -->
+                    <button class="carousel-control-next" type="button" data-bs-target="#carruselFrutas"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </button>
 
-            
+                </div>
+            </div>
+            <!-- Botón "Ver Catálogo" -->
+            <div id="botonTOcatalogo" class="container">
+                <div class="hero-content">
+                    <h4>Descubre nuestros vinos artesanales</h4>
+                    <button class="btn btn-danger">Ver catálogo</button>
+                </div>
+            </div>
+            </div>
+
+
         </section>
 
         <!-- EQUIPO -->
