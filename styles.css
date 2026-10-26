@@ -101,10 +101,51 @@ input {
   line-height: 1.7;
 }
 
-.carousel-inner img {
-  max-height: 450px;
+/* ESTILOS PARA EL CARRUSEL (ANDRES)*/
+
+#title_carrusel {
+  color: var(--verde-oliva);
+  text-shadow: 0 0 35px var(--blanco-marfil);
+}
+
+.carousel-item img {
   object-fit: contain;
   margin: 0 auto;
+  border-radius: 20px;
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.7),
+    0 0 75px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease;
+}
+
+.carousel-item img:hover {
+  transform: scale(1.02);
+}
+
+/* ESTILOS PARA EL BOTON VER CATALOGO*/
+
+.hero-content {
+    width: 75%;
+    margin: 0 auto;
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.hero-content button {
+  color: var(--blanco-marfil);
+  background-color: var(--terracota);
+  border-color: var(--vino-tinto);
+  box-shadow: 0 0 20px var(--vino-tinto);
+}
+
+.hero-content h4 {
+    flex-grow: 1;
+    text-align: center;
+    margin: 0;
+    color: var(--crema-suave);
+    text-shadow: 0 0 6px var(--blanco-marfil);
 }
 
 /* NAVBAR FLOTANTE (JOHAN)*/
@@ -257,3 +298,6 @@ input {
   font-size: 0.85rem;
   opacity: 0.75;
 }
+
+
+

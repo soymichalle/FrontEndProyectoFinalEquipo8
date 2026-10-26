@@ -133,30 +133,30 @@
         <section id="nuestros-vinos">
                 <div class="container">
                     <div class="row text-center">
-                        <h3>NUESTROS VINOS</h3>
+                        <h2 id="title_carrusel">NUESTROS VINOS</h2>
                     </div>
                     <!-- Carrusel -->
-                    <div id="carruselFrutas" data-bs-ride="carousel" class="slide">
+                    <div id="carruselFrutas" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner">
                             <!-- Divs para imagenes de frutas -->
-                            <div id="foto1_vinoCafe" class="carousel-item active autoplay">
-                                <img class="d-block w-80 h-10 mx-auto img-fluid shadow-lg rounded"
+                            <div id="foto1_vinoCafe" class="carousel-item active">
+                                <img class="d-block w-75  mx-auto img-fluid"
                                     src="/images-carrusel-aboutUs/foto-vinoCafe-aboutUs.png" alt="Imagen Vino de Cafe">
                             </div>
                             <div id="foto2_vinoUva" class="carousel-item">
-                                <img class="d-block w-80 h-10 img-fluid shadow-lg rounded"
+                                <img class="d-block w-75 mx-auto img-fluid"
                                     src="/images-carrusel-aboutUs/foto-vinoUva-aboutUs.png"
                                     alt="Imagen de vino de uva Isabel">
                             </div>
                             <div id="foto3_vinoMaracuya" class="carousel-item">
-                                <img class="d-block w-80 h-10 img-fluid shadow-lg rounded"
+                                <img class="d-block w-75 mx-auto img-fluid"
                                     src="/images-carrusel-aboutUs/foto-vinoMaracuya-aboutUs.png"
                                     alt="Imagen de vino de maracuyá">
                             </div>
 
                             <!-- Flecha anterior -->
                             <button class="carousel-control-prev" type="button" data-bs-target="#carruselFrutas"
-                                data-bs-slide="next">
+                                data-bs-slide="prev">
                                 <span class="carousel-control-prev-icon"></span>
                             </button>
                             <!-- Flecha siguiente -->
@@ -168,13 +168,11 @@
                         </div>
                     </div>
                 </div>
-                <!-- Ver Catálogo -->
+                <!-- Botón "Ver Catálogo" -->
                 <div id="botonTOcatalogo" class="container">
-                    <div class="row text-decoration-none">
-                        <p class="d-block col-6">Explora todos los productos vineros vallunos, y descubre nuevos sabores
-                        </p>
-
-                        <h4 class="d-block btn btn-dark text-center col-6">VER CATALOGO</h4>
+                    <div class="hero-content">
+                        <h4>Descubre nuestros vinos artesanales</h4>
+                        <button class="btn btn-danger">Ver catálogo</button>
                     </div>
 
                 </div>
