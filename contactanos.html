@@ -63,9 +63,63 @@
             <!-- FORMULARIO -->
             <section class="col-md-6">
                 <div class="equipo">
+                    <h2>Contáctanos</h2>
 
-                    <form>
-                        <!-- AQUI VA FORM -->
+                    <!-- Form -->
+                    <form action="https://formspree.io/f/mwlllwgr" method="post" class="row g-3">
+
+                        <!-- para nombre -->
+                        <div class="col-md-6">
+                            <label for="inputEmail4" class="form-label">Nombre</label>
+                            <input type="email" class="form-control" id="inputEmail4">
+                        </div>
+
+                        <!-- para apellido -->
+                        <div class="col-md-6">
+                            <label for="inputPassword4" class="form-label">Apellidos</label>
+                            <input type="password" class="form-control" id="inputPassword4">
+                        </div>
+
+                        <!-- para correo -->
+                        <div class="col-12">
+                            <label for="inputAddress" class="form-label">Correo electrónico</label>
+                            <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                        </div>
+
+                        <!-- para telefono -->
+                        <div class="col-12">
+                            <label for="inputAddress2" class="form-label">Teléfono</label>
+                            <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+                        </div>
+
+                        <!-- para mensaje -->
+                        <div class="col-md-6">
+                            <label for="inputCity" class="form-label">Tu mensaje</label>
+                            <input type="text" class="form-control" id="inputCity">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="inputState" class="form-label">State</label>
+                            <select id="inputState" class="form-select">
+                            <option selected>Choose...</option>
+                            <option>...</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="inputZip" class="form-label">Zip</label>
+                            <input type="text" class="form-control" id="inputZip">
+                        </div>
+                        <div class="col-12">
+                            <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="gridCheck">
+                            <label class="form-check-label" for="gridCheck">
+                                Check me out
+                            </label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary">Sign in</button>
+                        </div>
+                        
                     </form>
 
                 </div>
@@ -75,7 +129,7 @@
 
     </main>
 
-    <!-- FOOTER -->
+    <!-- FOOTER --> 
     <footer class="footer-boronvino cristal mt-5 py-5">
         <div class="container">
             <div class="row g-4 align-items-start">
