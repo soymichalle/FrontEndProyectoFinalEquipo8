@@ -71,53 +71,60 @@
                         <!-- para nombre -->
                         <div class="col-md-6">
                             <label for="inputEmail4" class="form-label">Nombre</label>
-                            <input type="email" class="form-control" id="inputEmail4">
+                            <input type="text" class="form-control" id="inputEmail4">
                         </div>
 
                         <!-- para apellido -->
                         <div class="col-md-6">
                             <label for="inputPassword4" class="form-label">Apellidos</label>
-                            <input type="password" class="form-control" id="inputPassword4">
+                            <input type="text" class="form-control" id="inputPassword4">
                         </div>
 
                         <!-- para correo -->
                         <div class="col-12">
-                            <label for="inputAddress" class="form-label">Correo electrónico</label>
-                            <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                            <label for="exampleInputEmail1" class="form-label">Correo electrónico</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="ejemplo@e-mail">
+                            <div id="emailHelp" class="form-text">No compartiremos tu correo con nadie.</div>
                         </div>
 
                         <!-- para telefono -->
-                        <div class="col-12">
-                            <label for="inputAddress2" class="form-label">Teléfono</label>
-                            <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+                        <div class="col-6">
+                            <label for="inputPhone" class="form-label">Teléfono</label>
+                            <input type="number" class="form-control" id="inputPhone" placeholder="ejemplo: 312 345 6789">
                         </div>
 
-                        <!-- para mensaje -->
+                        <!-- para escoger ciudad -->
                         <div class="col-md-6">
-                            <label for="inputCity" class="form-label">Tu mensaje</label>
-                            <input type="text" class="form-control" id="inputCity">
+                            <label for="inputCity" class="form-label">Ciudad</label>
+                                <select id="inputCity" class="form-select">
+                                    <option value="">Escuentra tu ciudad</option>
+                                    <option value="cali">Cali</option>
+                                    <option value="Buenaventura">Buenaventura</option>
+                                    <option value="Tuluá">Tuluá</option>
+                                    <option value="">Buga</option>
+                                    <option value="">Cartago</option>
+                                    <option value="">Jumbo</option>
+                                    <option value="">Candelaria</option>
+                                    <option value="">Florida</option>
+                                    <option value="">Pradera</option>
+                                    <option value="otro">Otro...</option>
+                                </select>
+                                <input type="text" name="" id="otraCiudad" hidden>
                         </div>
-                        <div class="col-md-4">
-                            <label for="inputState" class="form-label">State</label>
-                            <select id="inputState" class="form-select">
-                            <option selected>Choose...</option>
-                            <option>...</option>
-                            </select>
-                        </div>
-                        <div class="col-md-2">
-                            <label for="inputZip" class="form-label">Zip</label>
-                            <input type="text" class="form-control" id="inputZip">
-                        </div>
+
                         <div class="col-12">
-                            <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="gridCheck">
-                            <label class="form-check-label" for="gridCheck">
-                                Check me out
-                            </label>
-                            </div>
+                            <label for="inputAsunto" class="form-label">Asunto</label>
+                            <input type="email" class="form-control" id="inputAsunto" placeholder="Escribe el asunto.">
                         </div>
+
                         <div class="col-12">
-                            <button type="submit" class="btn btn-primary">Sign in</button>
+                            <label for="inputMessage" class="form-label">Tu mensaje</label>
+                            <input type="email" class="form-control" id="inputMessage" placeholder="Déjanos tu mensaje aquí.">
+                        </div>
+                        
+                        
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary">Enviar</button>
                         </div>
                         
                     </form>
@@ -200,6 +207,9 @@
             </div>
         </div>
     </footer>
+
+    <!-- Nuestros JS -->
+     <script src="/contact.js"></script>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
