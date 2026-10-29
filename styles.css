@@ -389,4 +389,24 @@ input {
        border: 1px solid rgba(239, 210, 175, 0.2);
     }
 
+    /*------ ESTILOS PARA ELEMENTOS DEL FORMULARIO ------*/
+
+    /* estilos para el botón enviar del Form */
+    .btn-enviarform {
+      background-color: var(--verde-oliva);
+      color: var(--blanco-marfil);
+      border-radius: 20px;
+      padding: 3% 9%;
+      font-weight: 600;
+      text-decoration: none;
+      border: none;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    .btn-enviarform:hover {
+      background-color: var(--terracota);
+      color: var(--blanco-marfil);
+      transform: scale(1.03);
+    }
+
    
