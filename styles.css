@@ -125,12 +125,12 @@ input {
 /* ESTILOS PARA EL BOTON VER CATALOGO*/
 
 .hero-content {
-    width: 75%;
-    margin: 0 auto;
-    padding: 1rem 1.5rem;
-    display: flex;
-    align-items: center;
-    gap: 20px;
+  width: 75%;
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
 .hero-content button {
@@ -141,11 +141,11 @@ input {
 }
 
 .hero-content h4 {
-    flex-grow: 1;
-    text-align: center;
-    margin: 0;
-    color: var(--crema-suave);
-    text-shadow: 0 0 6px var(--blanco-marfil);
+  flex-grow: 1;
+  text-align: center;
+  margin: 0;
+  color: var(--crema-suave);
+  text-shadow: 0 0 6px var(--blanco-marfil);
 }
 
 /* NAVBAR FLOTANTE (JOHAN)*/
@@ -293,7 +293,7 @@ input {
   border-radius: 24px;
 }
 
-.origen .container .cristal{
+.origen .container .cristal {
   background-color: var(--crema-suave);
 }
 
@@ -364,49 +364,91 @@ input {
 
 /* ESTILOS DEL ACORDION*/
 
-.accordion-button, 
-    .accordion-button:not(.collapsed), 
-    .accordion-body, 
-    .accordion-item {
-        background-color: transparent;
-        color: var(--vino-tinto);
-    }
-    .accordion-button {
-        box-shadow: none;
-    }
-    .accordion-button:focus {
-        box-shadow: none;
-        border-color: none;
-    }
-    .accordion-item {
-        border-color: transparent;
-    }
+.accordion-button,
+.accordion-button:not(.collapsed),
+.accordion-body,
+.accordion-item {
+  background-color: transparent;
+  color: var(--vino-tinto);
+}
 
-    .preguntas {
-      background-color: var(--crema-suave);
-      border-radius: 24px;
-      color: var(--vino-tinto);
-       border: 1px solid rgba(239, 210, 175, 0.2);
-    }
+.accordion-button {
+  box-shadow: none;
+  transition: color 0.3s ease, background-color 0.3s ease;
+  border-radius: 3rem;
+}
 
-    /*------ ESTILOS PARA ELEMENTOS DEL FORMULARIO ------*/
+.accordion-button:focus {
+  box-shadow: none;
+  border-color: none;
+  color: var(--terracota);
+  background-color: rgba(193, 103, 59, 0.08);
+}
 
-    /* estilos para el botón enviar del Form */
-    .btn-enviarform {
-      background-color: var(--verde-oliva);
-      color: var(--blanco-marfil);
-      border-radius: 20px;
-      padding: 3% 9%;
-      font-weight: 600;
-      text-decoration: none;
-      border: none;
-      transition: opacity 0.2s ease, transform 0.2s ease;
-    }
+.accordion-item {
+  border-color: transparent;
+}
 
-    .btn-enviarform:hover {
-      background-color: var(--terracota);
-      color: var(--blanco-marfil);
-      transform: scale(1.03);
-    }
+.accordion-item button {
+  font-family: var(--font-title);
+  letter-spacing: 1px;
+  font-weight: bold;
+  color: var(--terracota);
+}
 
-   
+.accordion-body {
+  animation: aparecerTexto 0.35s ease;
+}
+
+@keyframes aparecerTexto {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.preguntas {
+  background-color: var(--crema-suave);
+  border-radius: 24px;
+  color: var(--vino-tinto);
+  border: 1px solid rgba(239, 210, 175, 0.2);
+}
+
+.texto-ayuda {
+  color: var(--crema-suave);
+  opacity: 1;
+  font-family: var(--font-text);
+  font-size: 0.875rem;
+  font-style: italic;
+}
+
+/*------ ESTILOS PARA ELEMENTOS DEL FORMULARIO ------*/
+
+.form-label {
+  font-family: var(--font-title);
+  letter-spacing: 1px;
+  font-weight: lighter;
+}
+
+/* estilos para el botón enviar del Form */
+.btn-enviarform {
+  background-color: var(--verde-oliva);
+  color: var(--blanco-marfil);
+  border-radius: 20px;
+  padding: 3% 9%;
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.btn-enviarform:hover {
+  background-color: var(--terracota);
+  color: var(--blanco-marfil);
+  transform: scale(1.03);
+}
