@@ -179,16 +179,79 @@ input {
   white-space: nowrap;
 }
 
+/*ANIMACIÓN Y ESTADO ACTIVO DE ENLACES (JOHAN) */
 .nav-links a {
+  position: relative;
   text-decoration: none;
   color: var(--blanco-marfil);
   font-weight: 500;
   font-size: 0.95rem;
-  transition: color 0.2s ease;
+  transition: color 0.3s ease;
+  padding-bottom: 4px;
 }
 
-.nav-links a:hover {
-  color: var(--terracota);
+/* Línea animada inferior al pasar el cursor */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--terracota);
+  transition: width 0.3s ease;
+}
+
+/* Muestra la línea completa si pasas el mouse o si es la página activa */
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--crema-suave);
+}
+
+/* Indicador de foco accesible para enlaces y botones del Header/Footer */
+.nav-links a:focus-visible,
+.nav-acciones a:focus-visible,
+.footer-link:focus-visible {
+  outline: 2px solid var(--terracota);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+/*RESPONSIVE HEADER - CELULARES (JOHAN)*/
+@media (max-width: 768px) {
+  .header-flotante-container {
+    top: 10px;
+    width: calc(100% - 20px);
+  }
+
+  .header-flotante-container .navbar>.container {
+    padding: 6px 12px;
+    gap: 10px;
+    min-height: 42px;
+  }
+
+  .nav-links {
+    gap: 12px;
+  }
+
+  .nav-links a {
+    font-size: 0.82rem;
+  }
+
+  /* En pantallas móviles muestra solo los 3 accesos clave */
+  .nav-links li:not(:first-child):not(:nth-last-child(2)):not(:last-child) {
+    display: none;
+  }
+
+  .btn-terracota {
+    padding: 4px 10px;
+    font-size: 0.8rem;
+  }
 }
 
 /* LOGO MÁS GRANDE */
@@ -299,4 +362,31 @@ input {
   opacity: 0.75;
 }
 
+/* ESTILOS DEL ACORDION*/
 
+.accordion-button, 
+    .accordion-button:not(.collapsed), 
+    .accordion-body, 
+    .accordion-item {
+        background-color: transparent;
+        color: var(--vino-tinto);
+    }
+    .accordion-button {
+        box-shadow: none;
+    }
+    .accordion-button:focus {
+        box-shadow: none;
+        border-color: none;
+    }
+    .accordion-item {
+        border-color: transparent;
+    }
+
+    .preguntas {
+      background-color: var(--crema-suave);
+      border-radius: 24px;
+      color: var(--vino-tinto);
+       border: 1px solid rgba(239, 210, 175, 0.2);
+    }
+
+   
