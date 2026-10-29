@@ -215,33 +215,33 @@
 
                         <!-- para nombre -->
                         <div class="col-md-6">
-                            <label for="inputEmail4" class="form-label">Nombre</label>
-                            <input type="text" class="form-control" id="inputEmail4">
+                            <label for="inputName" class="form-label">Nombre</label>
+                            <input type="text" name="nombre" class="form-control" id="inputName" required>
                         </div>
 
                         <!-- para apellido -->
                         <div class="col-md-6">
-                            <label for="inputPassword4" class="form-label">Apellidos</label>
-                            <input type="text" class="form-control" id="inputPassword4">
+                            <label for="inputApellido" class="form-label">Apellidos</label>
+                            <input type="text" name="apellidos" class="form-control" id="inputApellido" required>
                         </div>
 
                         <!-- para correo -->
                         <div class="col-12">
                             <label for="exampleInputEmail1" class="form-label">Correo electrónico</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="ejemplo@e-mail">
+                            <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="ejemplo@e-mail" required>
                             <div id="emailHelp" class="form-text">No compartiremos tu correo con nadie.</div>
                         </div>
 
                         <!-- para telefono -->
                         <div class="col-6">
                             <label for="inputPhone" class="form-label">Teléfono</label>
-                            <input type="tel" class="form-control" id="inputPhone" placeholder="ejemplo: 312 345 6789">
+                            <input type="tel" name="telefono" class="form-control" id="inputPhone" placeholder="ejemplo: 3123456789" required>
                         </div>
 
                         <!-- para escoger ciudad -->
                         <div class="col-md-6">
                             <label for="inputCity" class="form-label">Ciudad</label>
-                                <select id="inputCity" class="form-select">
+                                <select id="inputCity" name="ciudad" class="form-select" required>
                                     <option value="">Escuentra tu ciudad</option>
                                     <option value="cali">Cali</option>
                                     <option value="Buenaventura">Buenaventura</option>
@@ -254,19 +254,18 @@
                                     <option value="">Pradera</option>
                                     <option value="otro">Otro...</option>
                                 </select>
-                                <input type="text" name="" id="otraCiudad" hidden>
+                                <input type="text" name="otraCiudad" id="otraCiudad" hidden>
                         </div>
 
                         <div class="col-12">
                             <label for="inputAsunto" class="form-label">Asunto</label>
-                            <input type="email" class="form-control" id="inputAsunto" placeholder="Escribe el asunto.">
+                            <input type="text" name="asunto" class="form-control" id="inputAsunto" placeholder="Escribe el asunto.">
                         </div>
 
                         <div class="col-12">
                             <label for="inputMessage" class="form-label">Tu mensaje</label>
-                            <input type="email" class="form-control" id="inputMessage" placeholder="Déjanos tu mensaje aquí.">
+                            <textarea name="mensaje" class="form-control" id="inputMessage" placeholder="Déjanos tu mensaje aquí." required></textarea>
                         </div>
-                        
                         
                         <div class="col-12">
                             <button type="submit" class="btn btn-primary">Enviar</button>
@@ -358,7 +357,7 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-    
+
     <!-- Nuestros JS -->
      <script src="/contact.js"></script>
 
