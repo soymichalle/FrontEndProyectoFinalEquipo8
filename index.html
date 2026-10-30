@@ -22,235 +22,51 @@
     <link href="styles.css" rel="stylesheet">
 </head>
 
-<style>
-    :root {
-        --font-subtitle: 'Montserrat', sans-serif;
-    }
-
-    .productores-social {
-        padding: 10rem 10rem;
-    }
-
-    .origen-social {
-        background-color: var(--vino-tinto);
-        font-weight: lighter;
-        color: var(--blanco-marfil);
-    }
-
-    .origen-titulo p {
-        font-family: var(--font-subtitle);
-        color: var(--terracota);
-        letter-spacing: 2px;
-    }
-
-    .icono-origen {
-        font-size: 40px;
-        color: var(--terracota);
-        display: inline-block;
-        margin-bottom: 15px;
-    }
-
-    .origen-social .border-start,
-    .origen-social .border-end {
-        border-color: var(--crema-suave) !important;
-    }
-
-    .productores-social {
-        background-color: var(--blanco-marfil);
-    }
-
-    /* =================================
-   LISTA DE PRODUCTORES
-================================= */
-
-    .lista-productores {
-        background: transparent;
-    }
-
-    .lista-productores .list-group-item {
-        background: transparent;
-        border-color: rgba(94, 45, 35, 0.2);
-        padding: 18px 5px;
-        transition: all 0.3s ease;
-    }
-
-    .foto-productor {
-        width: 95px;
-        height: 95px;
-        object-fit: cover;
-        border-radius: 8px;
-    }
-
-    .info-productor span {
-        font-size: 10px;
-        letter-spacing: 1.5px;
-        color: var(--terracota);
-    }
-
-    .info-productor h5 {
-        color: var(--vino-tinto);
-        margin: 5px 0;
-    }
-
-    .info-productor p {
-        margin: 0;
-        font-size: 13px;
-    }
-
-    .lista-productores i {
-        color: var(--terracota);
-        font-size: 20px;
-    }
-
-    .lista-productores .list-group-item:hover {
-        padding-left: 15px;
-        background-color: rgba(193, 103, 59, 0.07);
-    }
-
-    /* TESTIMONIOS */
-
-    .testimonio-productor {
-        padding: 25px;
-        border-left: 3px solid var(--terracota);
-        background-color: rgba(193, 103, 59, 0.07);
-        min-height: 190px;
-    }
-
-    .etiqueta-testimonio {
-        font-size: 11px;
-        letter-spacing: 2px;
-        color: var(--terracota);
-    }
-
-    #contenidoTestimonio {
-        margin-top: 20px;
-        opacity: 1;
-        transform: translateY(0);
-        transition: opacity .35s ease, transform .35s ease;
-    }
-
-    #contenidoTestimonio.animando {
-        opacity: 0;
-        transform: translateY(12px);
-    }
-
-    /* INTERACCIÓN PRODUCTORES */
-
-    .productor-item {
-        background: transparent;
-        color: inherit;
-        text-align: left;
-        transition: background-color .3s ease;
-    }
-
-    .productor-item:hover,
-    .productor-item.activo {
-        background-color: rgba(193, 103, 59, 0.08);
-    }
-
-    .productor-item:focus-visible {
-        outline: 2px solid var(--terracota);
-        outline-offset: 3px;
-    }
-
-    /* =================================
-   PRODUCTOR DESTACADO
-================================= */
-
-    #productorDestacado.cristal {
-        position: relative;
-        min-height: 420px;
-        margin-top: 35px;
-        padding: 35px;
-
-        display: flex;
-        align-items: flex-end;
-
-        background-image: url("img-productores/prod-1.png");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-
-        border-radius: 15px;
-        overflow: hidden;
-
-        color: var(--blanco-marfil);
-
-        transition: background-image 0.4s ease;
-    }
-
-    #productorDestacado.cristal::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-
-        background: linear-gradient(to top,
-                rgba(35, 15, 12, 0.95),
-                rgba(35, 15, 12, 0.15));
-
-        z-index: 0;
-    }
-
-    /* Contenido sobre la imagen */
-
-    .destacado-contenido {
-        position: relative;
-        z-index: 1;
-        max-width: 550px;
-    }
-
-    .etiqueta-testimonio {
-        font-family: var(--font-subtitle);
-        font-size: 11px;
-        letter-spacing: 3px;
-        color: var(--crema-suave);
-    }
-
-    .destacado-contenido h2 {
-        font-size: 32px;
-        margin-top: 15px;
-        color: var(--blanco-marfil);
-    }
-
-    .destacado-contenido p {
-        line-height: 1.8;
-        color: var(--blanco-marfil);
-    }
-
-    #ubicacionDestacado {
-        font-size: 14px;
-        color: var(--crema-suave);
-    }
-
-    .separador-destacado {
-        width: 55px;
-        height: 3px;
-        background-color: var(--terracota);
-        margin: 18px 0;
-    }
-
-    /* Animación del contenido */
-
-    .destacado-contenido {
-        opacity: 1;
-        transform: translateY(0);
-
-        transition:
-            opacity 0.35s ease,
-            transform 0.35s ease;
-    }
-
-    .destacado-contenido.animando {
-        opacity: 0;
-        transform: translateY(15px);
-    }
-</style>
-
 <body>
 
     <!-- HEADER FLOTANTE -->
     <header class="header-flotante-container p-5">
+        <nav class="navbar cristal navbar-expand-lg navbar-dark">
+            <div class="container">
+                <!-- Logo-->
+                <a href="index.html" class="navbar-brand">
+                    <img src="imagenes/logonegativo.svg" alt="Isotipo BoronVino en negativo">
+                </a>
+                <!-- Menu hamburguesa-->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuBoronVino"
+                    aria-controls="menuBoronVino" aria-expanded="false" aria-label="Abrir menú de navegación">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
+
+                <div class="collapse navbar-collapse" id="menuBoronVino">
+
+                    <ul class="navbar-nav mx-auto nav-links-bv">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="sobre-nosotros.html">Sobre nosotros</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contactanos.html">Contacto</a>
+                        </li>
+                    </ul>
+
+                    <div class="nav-acciones d-flex align-items-center gap-2">
+                        <a href="login.html" class="btn-login" aria-label="Iniciar sesión">
+                            <i class="fa-solid fa-user"></i>
+                            <span class="btn-login-texto">Login</span>
+                        </a>
+                        <a href="carrito.html" class="btn-carrito" aria-label="Carrito de compras, 0 productos">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <span class="carrito-badge">0</span>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </nav>
     </header>
 
     <main class="main">
@@ -360,12 +176,79 @@
 
     <!-- FOOTER -->
     <footer class="footer-boronvino cristal mt-5 py-5">
+        <div class="container">
+            <div class="row g-4 align-items-start">
 
+                <!-- Columna 1: Marca y descripción -->
+                <div class="col-12 col-md-4">
+                    <h3 class="fw-bold mb-3 footer-brand">BORONVINO</h3>
+                    <p class="footer-text">
+                        Vino artesanal elaborado con tradición, dedicación y apoyo a las familias campesinas y pequeños
+                        productores del Valle del Cauca.
+                    </p>
+                </div>
+
+                <!-- Columna 2: Enlaces de navegación -->
+                <div class="col-12 col-md-4 text-md-center">
+                    <h5 class="fw-bold mb-3 footer-subtitle">Navegación</h5>
+                    <ul class="list-unstyled footer-menu">
+                        <li class="mb-2"><a href="index.html" class="footer-link">Inicio</a></li>
+                        <li class="mb-2"><a href="contactanos.html" class="footer-link">Contactenos</a></li>
+                        <li class="mb-2"><a href="sobre-nosotros.html" class="footer-link">Acerca de nosotros</a></li>
+                        <li class="mb-2"><a href="#catalogo" class="footer-link">Catalogo</a></li>
+                        <li class="mb-2"><a href="#login" class="footer-link">Login</a></li>
+                        <li cass="mb-2"><a href="#Carrito" class="footer-link">Carrito de compras</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna 3: Información de contacto -->
+                <div class="col-12 col-md-4 text-md-end">
+                    <h5 class="fw-bold mb-3 footer-subtitle">Contacto</h5>
+                    <p class="mb-1 footer-text">
+                        <i class="fa-solid fa-location-dot me-2"></i>Valle del Cauca, Colombia
+                    </p>
+                    <p class="mb-2 footer-text" target="_blank">
+                        <i class="fa-solid fa-envelope me-2"></i>info@boronvino.com
+                    </p>
+
+                    <ul class="list-unstyled footer-social mt-3 mb-3">
+                        <li class="mb-2">
+                            <a target="_blank">
+                                <i class="fa-brands fa-instagram me-2"></i>Instagram
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a>
+                                <i class="fa-brands fa-facebook-f me-2"></i>Facebook
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a>
+                                <i class="fa-brands fa-tiktok me-2"></i>TikTok
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a>
+                                <i class="fa-brands fa-whatsapp me-2"></i>WhatsApp
+                            </a>
+                        </li>
+                    </ul>
+
+                    <a href="#botonTOcatalogo" class="btn btn-sm btn-terracota mt-2">Visitar Tienda</a>
+                </div>
+            </div>
+
+            <hr class="my-4 footer-divider">
+
+            <div class="text-center">
+                <p class="m-0 footer-copy">&copy; 2026 BoronVino. Todos los derechos reservados.</p>
+            </div>
+        </div>
     </footer>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="lista-productores.js"></script>
+    <script src="js/lista-productores.js"></script>
 
 </body>
 

@@ -17,7 +17,9 @@
   --verde-oliva: #868E5B;
 
   --font-title: 'Eugusto', serif;
+  --font-subtitle: 'Montserrat', sans-serif;
   --font-text: 'Inter', sans-serif;
+
 }
 
 body {
@@ -451,4 +453,207 @@ input {
   background-color: var(--terracota);
   color: var(--blanco-marfil);
   transform: scale(1.03);
+}
+
+/* ================= INDEX ================= */
+.productores-social {
+  padding: 10rem 10rem;
+}
+
+.origen-social {
+  background-color: var(--vino-tinto);
+  font-weight: lighter;
+  color: var(--blanco-marfil);
+}
+
+.origen-titulo p {
+  font-family: var(--font-subtitle);
+  color: var(--terracota);
+  letter-spacing: 2px;
+}
+
+.icono-origen {
+  font-size: 40px;
+  color: var(--terracota);
+  display: inline-block;
+  margin-bottom: 15px;
+}
+
+.origen-social .border-start,
+.origen-social .border-end {
+  border-color: var(--crema-suave) !important;
+}
+
+.productores-social {
+  background-color: var(--blanco-marfil);
+}
+
+.lista-productores {
+  background: transparent;
+}
+
+.lista-productores .list-group-item {
+  background: transparent;
+  border-color: rgba(94, 45, 35, 0.2);
+  padding: 18px 5px;
+  transition: all 0.3s ease;
+}
+
+.foto-productor {
+  width: 95px;
+  height: 95px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.info-productor span {
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  color: var(--terracota);
+}
+
+.info-productor h5 {
+  color: var(--vino-tinto);
+  margin: 5px 0;
+}
+
+.info-productor p {
+  margin: 0;
+  font-size: 13px;
+}
+
+.lista-productores i {
+  color: var(--terracota);
+  font-size: 20px;
+}
+
+.lista-productores .list-group-item:hover {
+  padding-left: 15px;
+  background-color: rgba(193, 103, 59, 0.07);
+}
+
+.testimonio-productor {
+  padding: 25px;
+  border-left: 3px solid var(--terracota);
+  background-color: rgba(193, 103, 59, 0.07);
+  min-height: 190px;
+}
+
+.etiqueta-testimonio {
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--terracota);
+}
+
+#contenidoTestimonio {
+  margin-top: 20px;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity .35s ease, transform .35s ease;
+}
+
+#contenidoTestimonio.animando {
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.productor-item {
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  transition: background-color .3s ease;
+}
+
+.productor-item:hover,
+.productor-item.activo {
+  background-color: rgba(193, 103, 59, 0.08);
+}
+
+.productor-item:focus-visible {
+  outline: 2px solid var(--terracota);
+  outline-offset: 3px;
+}
+
+#productorDestacado.cristal {
+  position: relative;
+  min-height: 420px;
+  margin-top: 35px;
+  padding: 35px;
+
+  display: flex;
+  align-items: flex-end;
+
+  background-image: url("img-productores/prod-1.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  border-radius: 15px;
+  overflow: hidden;
+
+  color: var(--blanco-marfil);
+
+  transition: background-image 0.4s ease;
+}
+
+#productorDestacado.cristal::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(to top,
+      rgba(35, 15, 12, 0.95),
+      rgba(35, 15, 12, 0.15));
+
+  z-index: 0;
+}
+
+.destacado-contenido {
+  position: relative;
+  z-index: 1;
+  max-width: 550px;
+}
+
+.etiqueta-testimonio {
+  font-family: var(--font-subtitle);
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: var(--crema-suave);
+}
+
+.destacado-contenido h2 {
+  font-size: 32px;
+  margin-top: 15px;
+  color: var(--blanco-marfil);
+}
+
+.destacado-contenido p {
+  line-height: 1.8;
+  color: var(--blanco-marfil);
+}
+
+#ubicacionDestacado {
+  font-size: 14px;
+  color: var(--crema-suave);
+}
+
+.separador-destacado {
+  width: 55px;
+  height: 3px;
+  background-color: var(--terracota);
+  margin: 18px 0;
+}
+
+.destacado-contenido {
+  opacity: 1;
+  transform: translateY(0);
+
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease;
+}
+
+.destacado-contenido.animando {
+  opacity: 0;
+  transform: translateY(15px);
 }
