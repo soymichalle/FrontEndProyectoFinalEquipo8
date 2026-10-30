@@ -11,6 +11,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -19,6 +21,230 @@
     <!-- Estilos propios -->
     <link href="styles.css" rel="stylesheet">
 </head>
+
+<style>
+    :root {
+        --font-subtitle: 'Montserrat', sans-serif;
+    }
+
+    .productores-social {
+        padding: 10rem 10rem;
+    }
+
+    .origen-social {
+        background-color: var(--vino-tinto);
+        font-weight: lighter;
+        color: var(--blanco-marfil);
+    }
+
+    .origen-titulo p {
+        font-family: var(--font-subtitle);
+        color: var(--terracota);
+        letter-spacing: 2px;
+    }
+
+    .icono-origen {
+        font-size: 40px;
+        color: var(--terracota);
+        display: inline-block;
+        margin-bottom: 15px;
+    }
+
+    .origen-social .border-start,
+    .origen-social .border-end {
+        border-color: var(--crema-suave) !important;
+    }
+
+    .productores-social {
+        background-color: var(--blanco-marfil);
+    }
+
+    /* =================================
+   LISTA DE PRODUCTORES
+================================= */
+
+    .lista-productores {
+        background: transparent;
+    }
+
+    .lista-productores .list-group-item {
+        background: transparent;
+        border-color: rgba(94, 45, 35, 0.2);
+        padding: 18px 5px;
+        transition: all 0.3s ease;
+    }
+
+    .foto-productor {
+        width: 95px;
+        height: 95px;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+
+    .info-productor span {
+        font-size: 10px;
+        letter-spacing: 1.5px;
+        color: var(--terracota);
+    }
+
+    .info-productor h5 {
+        color: var(--vino-tinto);
+        margin: 5px 0;
+    }
+
+    .info-productor p {
+        margin: 0;
+        font-size: 13px;
+    }
+
+    .lista-productores i {
+        color: var(--terracota);
+        font-size: 20px;
+    }
+
+    .lista-productores .list-group-item:hover {
+        padding-left: 15px;
+        background-color: rgba(193, 103, 59, 0.07);
+    }
+
+    /* TESTIMONIOS */
+
+    .testimonio-productor {
+        padding: 25px;
+        border-left: 3px solid var(--terracota);
+        background-color: rgba(193, 103, 59, 0.07);
+        min-height: 190px;
+    }
+
+    .etiqueta-testimonio {
+        font-size: 11px;
+        letter-spacing: 2px;
+        color: var(--terracota);
+    }
+
+    #contenidoTestimonio {
+        margin-top: 20px;
+        opacity: 1;
+        transform: translateY(0);
+        transition: opacity .35s ease, transform .35s ease;
+    }
+
+    #contenidoTestimonio.animando {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    /* INTERACCIÓN PRODUCTORES */
+
+    .productor-item {
+        background: transparent;
+        color: inherit;
+        text-align: left;
+        transition: background-color .3s ease;
+    }
+
+    .productor-item:hover,
+    .productor-item.activo {
+        background-color: rgba(193, 103, 59, 0.08);
+    }
+
+    .productor-item:focus-visible {
+        outline: 2px solid var(--terracota);
+        outline-offset: 3px;
+    }
+
+    /* =================================
+   PRODUCTOR DESTACADO
+================================= */
+
+    #productorDestacado.cristal {
+        position: relative;
+        min-height: 420px;
+        margin-top: 35px;
+        padding: 35px;
+
+        display: flex;
+        align-items: flex-end;
+
+        background-image: url("img-productores/prod-1.png");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+
+        border-radius: 15px;
+        overflow: hidden;
+
+        color: var(--blanco-marfil);
+
+        transition: background-image 0.4s ease;
+    }
+
+    #productorDestacado.cristal::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+
+        background: linear-gradient(to top,
+                rgba(35, 15, 12, 0.95),
+                rgba(35, 15, 12, 0.15));
+
+        z-index: 0;
+    }
+
+    /* Contenido sobre la imagen */
+
+    .destacado-contenido {
+        position: relative;
+        z-index: 1;
+        max-width: 550px;
+    }
+
+    .etiqueta-testimonio {
+        font-family: var(--font-subtitle);
+        font-size: 11px;
+        letter-spacing: 3px;
+        color: var(--crema-suave);
+    }
+
+    .destacado-contenido h2 {
+        font-size: 32px;
+        margin-top: 15px;
+        color: var(--blanco-marfil);
+    }
+
+    .destacado-contenido p {
+        line-height: 1.8;
+        color: var(--blanco-marfil);
+    }
+
+    #ubicacionDestacado {
+        font-size: 14px;
+        color: var(--crema-suave);
+    }
+
+    .separador-destacado {
+        width: 55px;
+        height: 3px;
+        background-color: var(--terracota);
+        margin: 18px 0;
+    }
+
+    /* Animación del contenido */
+
+    .destacado-contenido {
+        opacity: 1;
+        transform: translateY(0);
+
+        transition:
+            opacity 0.35s ease,
+            transform 0.35s ease;
+    }
+
+    .destacado-contenido.animando {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+</style>
 
 <body>
 
@@ -38,7 +264,97 @@
         <section></section>
 
         <!-- PRUEBA SOCIAL -->
-        <section></section>
+        <section class="prueba-social">
+
+            <!-- PRIMERA PARTE - ORIGEN -->
+            <div class="origen-social text-center">
+                <div class="origen-titulo py-5">
+                    <p>LO QUE NOS HACE ÚNICOS</p>
+                    <h2>Más que un vino, una historia</h2>
+                </div>
+
+                <div class="row col-12 px-5 pb-5 align-items-center">
+
+                    <div class="col-md-4">
+                        <i class="bi bi-flower1 icono-origen"></i>
+                        <h3>Origen</h3>
+                        <p>Productos que nos representan, la riqueza y biodiversidad del Valle del Cauca.</p>
+                    </div>
+
+                    <div class="col-md-4 border-start border-end">
+
+                        <i class="bi bi-cup icono-origen"></i>
+                        <h3>Tradición</h3>
+                        <p>Historias de familias que mantienen viva la elaboración artesanal.</p>
+                    </div>
+
+                    <div class="col-md-4">
+
+                        <i class="bi bi-people icono-origen"></i>
+                        <h3>Productores locales</h3>
+                        <p>Un espacio que acerca a quienes producen con pasión y a quienes disfrutan lo auténtico.</p>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- SEGUNDA PARTE - PRODUCTORES E HISTORIAS -->
+            <div class="productores-social py-5">
+                <div class="row px-6">
+
+                    <div class="col-12 col-md-6">
+                        <div class="origen-titulo">
+                            <p>CONOCE A QUIÉNES LO HACEN POSIBLE</p>
+                            <h2>Nuestros Productores</h2>
+                        </div>
+
+                        <p>Detrás de cada botella hay personas, familias y comunidades que con su trabajo y dedicación
+                            mantienen viva la tradición vitivicola y frutal de nuestra región.</p>
+
+                        <div class="cristal" id="productorDestacado">
+
+                            <div class="destacado-contenido">
+
+                                <div class="cristal p-5">
+
+                                    <span class="etiqueta-testimonio">
+                                        HISTORIAS DE NUESTRA TIERRA
+                                    </span>
+
+                                    <h2 id="nombreDestacado">
+                                        María Fernanda Ríos
+                                    </h2>
+
+                                    <p id="ubicacionDestacado">
+                                        Valle del Cauca
+                                    </p>
+
+                                    <div class="separador-destacado"></div>
+
+                                    <p id="textoDestacado">
+                                        Cada cosecha representa el esfuerzo de nuestras familias
+                                        y el amor por la tierra que trabajamos.
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PRODUCTORES -->
+                    <div class="col-12 col-md-6">
+
+                        <ul class="list-group list-group-flush lista-productores" id="listaProductores">
+
+                            <!-- JAVASCRIPT INSERTARÁ LOS PRODUCTORES AQUÍ -->
+
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
 
     </main>
 
@@ -49,6 +365,7 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lista-productores.js"></script>
 
 </body>
 
