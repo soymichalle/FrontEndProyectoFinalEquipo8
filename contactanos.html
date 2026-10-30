@@ -63,26 +63,51 @@
 
     <!-- HEADER FLOTANTE (JOHAN) -->
     <header class="header-flotante-container p-5">
-        <nav class="navbar cristal navbar-expand-lg navbar-light">
-            <div class="container">
+        <nav class="navbar cristal navbar-expand-lg navbar-dark">
+    <div class="container">
+            <!-- Logo-->
+        <a href="index.html" class="navbar-brand">
+            <img src="imagenes/logonegativo.svg" alt="Isotipo BoronVino en negativo">
+        </a>
+            <!-- Menu hamburguesa-->
+        <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#menuBoronVino"
+                aria-controls="menuBoronVino"
+                aria-expanded="false"
+                aria-label="Abrir menú de navegación">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-                <div class="navbar-brand">
-                    <a href="#inicio" class="navbar-brand">
-                        <img src="imagenes/logonegativo.svg" alt="Isotipo BoronVino en negativo">
-                    </a>
-                </div>
 
-                <ul class="nav-links m-0 p-0">
-                    <li><a href="index.html">Inicio</a></li>
-                    <li><a href="index.html#equipo">Sobre nosotros</a></li>
-                    <li><a href="contactanos.html">Contacto</a></li>
-                </ul>
+        <div class="collapse navbar-collapse" id="menuBoronVino">
 
-                <div class="nav-acciones">
-                    <a href="#botonTOcatalogo" class="btn btn-terracota">Tienda</a>
-                </div>
+            <ul class="navbar-nav mx-auto nav-links-bv">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="sobre-nosotros.html">Sobre nosotros</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contactanos.html">Contacto</a>
+                </li>
+            </ul>
+
+            <div class="nav-acciones d-flex align-items-center gap-2">
+                <a href="login.html" class="btn-login" aria-label="Iniciar sesión">
+                    <i class="fa-solid fa-user"></i>
+                    <span class="btn-login-texto">Login</span>
+                </a>
+                <a href="carrito.html" class="btn-carrito" aria-label="Carrito de compras, 0 productos">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span class="carrito-badge">0</span>
+                </a>
             </div>
-        </nav>
+
+        </div>
+    </div>
+</nav>
     </header>
 
     <main class="main container">
@@ -318,12 +343,12 @@
                 <div class="col-12 col-md-4 text-md-center">
                     <h5 class="fw-bold mb-3 footer-subtitle">Navegación</h5>
                     <ul class="list-unstyled footer-menu">
-                        <li class="mb-2"><a href="#inicio" class="footer-link">Inicio</a></li>
-                        <li class="mb-2"><a href="#contactenos" class="footer-link">Contactenos</a></li>
-                        <li class="mb-2"><a href="#acerca-de-nosotros" class="footer-link">Acerca de nosotros</a></li>
+                        <li class="mb-2"><a href="index.html" class="footer-link">Inicio</a></li>
+                        <li class="mb-2"><a href="contactanos.html" class="footer-link">Contactenos</a></li>
+                        <li class="mb-2"><a href="sobre-nosotros.html" class="footer-link">Acerca de nosotros</a></li>
                         <li class="mb-2"><a href="#catalogo" class="footer-link">Catalogo</a></li>
                         <li class="mb-2"><a href="#login" class="footer-link">Login</a></li>
-                        <lil cass="mb-2"><a href="#Carrito" class="footer-link">Carrito de compras</a></li>
+                        <li cass="mb-2"><a href="#Carrito" class="footer-link">Carrito de compras</a></li>
                     </ul>
                 </div>
 
