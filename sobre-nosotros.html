@@ -22,28 +22,46 @@
 
 <body>
 
-    <!-- HEADER FLOTANTE (JOHAN) -->
+    <!-- HEADER FLOTANTE -->
     <header class="header-flotante-container p-5">
-       <nav class="navbar cristal navbar-expand-lg navbar-light" aria-label="Navegación principal">
+        <nav class="navbar cristal navbar-expand-lg navbar-dark">
             <div class="container">
+                <!-- Logo-->
+                <a href="index.html" class="navbar-brand">
+                    <img src="imagenes/logonegativo.svg" alt="Isotipo BoronVino en negativo">
+                </a>
+                <!-- Menu hamburguesa-->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuBoronVino"
+                    aria-controls="menuBoronVino" aria-expanded="false" aria-label="Abrir menú de navegación">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-              <div class="navbar-brand">
-                    <a href="index.html" class="navbar-brand" aria-label="Volver a la página de inicio de BoronVino">
-                        <img src="imagenes/logonegativo.svg" alt="Isotipo BoronVino en negativo">
-                    </a>
-                </div>
 
-                <ul class="nav-links m-0 p-0">
-                    <li><a href="index.html" class="active" aria-current="page">Inicio</a></li>
-                    <li><a href="#origen">Origen</a></li>
-                    <li><a href="#nos-define">Lo que nos define</a></li>
-                    <li><a href="#nuestros-vinos">Nuestros Vinos</a></li>
-                    <li><a href="#equipo">Sobre nosotros</a></li>
-                    <li><a href="contactanos.html">Contacto</a></li>
-                </ul>
+                <div class="collapse navbar-collapse" id="menuBoronVino">
 
-                <div class="nav-acciones">
-                    <a href="#botonTOcatalogo" class="btn btn-terracota">Tienda</a>
+                    <ul class="navbar-nav mx-auto nav-links-bv">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="sobre-nosotros.html">Sobre nosotros</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contactanos.html">Contacto</a>
+                        </li>
+                    </ul>
+
+                    <div class="nav-acciones d-flex align-items-center gap-2">
+                        <a href="login.html" class="btn-login" aria-label="Iniciar sesión">
+                            <i class="fa-solid fa-user"></i>
+                            <span class="btn-login-texto">Login</span>
+                        </a>
+                        <a href="carrito.html" class="btn-carrito" aria-label="Carrito de compras, 0 productos">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <span class="carrito-badge">0</span>
+                        </a>
+                    </div>
+
                 </div>
             </div>
         </nav>
@@ -270,7 +288,7 @@
 
     </main>
 
-    <!-- FOOTER (JOHAN) -->
+    <!-- FOOTER -->
     <footer class="footer-boronvino cristal mt-5 py-5">
         <div class="container">
             <div class="row g-4 align-items-start">
@@ -288,21 +306,50 @@
                 <div class="col-12 col-md-4 text-md-center">
                     <h5 class="fw-bold mb-3 footer-subtitle">Navegación</h5>
                     <ul class="list-unstyled footer-menu">
-                        <li class="mb-2"><a href="#origen" class="footer-link">Origen</a></li>
-                        <li class="mb-2"><a href="#nos-define" class="footer-link">Lo que nos define</a></li>
-                        <li class="mb-2"><a href="#nuestros-vinos" class="footer-link">Nuestros Vinos</a></li>
-                        <li class="mb-2"><a href="#equipo" class="footer-link">Equipo</a></li>
+                        <li class="mb-2"><a href="index.html" class="footer-link">Inicio</a></li>
+                        <li class="mb-2"><a href="contactanos.html" class="footer-link">Contactenos</a></li>
+                        <li class="mb-2"><a href="sobre-nosotros.html" class="footer-link">Acerca de nosotros</a></li>
+                        <li class="mb-2"><a href="#catalogo" class="footer-link">Catalogo</a></li>
+                        <li class="mb-2"><a href="#login" class="footer-link">Login</a></li>
+                        <li cass="mb-2"><a href="#Carrito" class="footer-link">Carrito de compras</a></li>
                     </ul>
                 </div>
 
                 <!-- Columna 3: Información de contacto -->
                 <div class="col-12 col-md-4 text-md-end">
                     <h5 class="fw-bold mb-3 footer-subtitle">Contacto</h5>
-                    <p class="mb-1 footer-text">Valle del Cauca, Colombia</p>
-                    <p class="mb-2 footer-text">info@boronvino.com</p>
+                    <p class="mb-1 footer-text">
+                        <i class="fa-solid fa-location-dot me-2"></i>Valle del Cauca, Colombia
+                    </p>
+                    <p class="mb-2 footer-text" target="_blank">
+                        <i class="fa-solid fa-envelope me-2"></i>info@boronvino.com
+                    </p>
+
+                    <ul class="list-unstyled footer-social mt-3 mb-3">
+                        <li class="mb-2">
+                            <a target="_blank">
+                                <i class="fa-brands fa-instagram me-2"></i>Instagram
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a>
+                                <i class="fa-brands fa-facebook-f me-2"></i>Facebook
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a>
+                                <i class="fa-brands fa-tiktok me-2"></i>TikTok
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a>
+                                <i class="fa-brands fa-whatsapp me-2"></i>WhatsApp
+                            </a>
+                        </li>
+                    </ul>
+
                     <a href="#botonTOcatalogo" class="btn btn-sm btn-terracota mt-2">Visitar Tienda</a>
                 </div>
-
             </div>
 
             <hr class="my-4 footer-divider">
