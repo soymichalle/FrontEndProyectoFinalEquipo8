@@ -76,8 +76,165 @@
         <!-- CATEGORIAS -->
         <section></section>
 
-        <!-- PRODUCTOS -->
-        <section></section>
+       <!-- PRODUCTOS DESTACADOS (JOHAN) -->
+    <section id="productos" class="py-5" aria-labelledby="titulo-destacados">
+      <div class="container">
+
+        <!-- Encabezado adaptado a la identidad de BoronVino -->
+        <div class="text-center mb-5">
+          <span class="badge rounded-pill text-uppercase px-3 py-2 mb-2 badge-artesanal">Selección Artesanal</span>
+          <h2 id="titulo-destacados" class="display-6 fw-bold titulo-destacados">Nuestros Vinos Destacados</h2>
+          <p class="subtitulo-destacados mx-auto">
+            Vinos elaborados por pequeños productores del Valle del Cauca, cuidando cada detalle desde la cosecha hasta tu mesa.
+          </p>
+        </div>
+
+        <!-- Rejilla de tarjetas con Carrusel (Agricultor + Vino + Video) -->
+        <div class="row g-4 justify-content-center">
+
+          <!-- Tarjeta 1: Vino Isabella -->
+          <div class="col-12 col-md-6 col-lg-4">
+            <article class="card h-100 cristal text-center p-3">
+              
+              <!-- Mini Carrusel de Bootstrap -->
+              <div id="carruselProd1" class="carousel slide" data-bs-ride="false">
+                <div class="carousel-inner rounded">
+                  <div class="carousel-item active">
+                    <img src="img-productores/prod-1.png" class="d-block w-100 rounded img-carrusel-card" alt="Productora de uva Isabella">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="images-carrusel-aboutUs/foto-vinoUva-aboutUs.png" class="d-block mx-auto img-fluid img-carrusel-botella" alt="Botella de Vino Isabella">
+                  </div>
+                  <div class="carousel-item">
+                    <video class="d-block w-100 rounded video-carrusel-card" autoplay loop muted playsinline>
+                      <source src="https://assets.mixkit.co/videos/preview/mixkit-pouring-red-wine-into-a-glass-41712-large.mp4" type="video/mp4">
+                      Tu navegador no soporta videos.
+                    </video>
+                  </div>
+                </div>
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#carruselProd1" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Anterior</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carruselProd1" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Siguiente</span>
+                </button>
+              </div>
+
+              <!-- Información del vino -->
+              <div class="card-body d-flex flex-column pt-3">
+                <span class="text-uppercase small texto-cepa mb-1">Cepa Isabella</span>
+                <h3 class="card-title h5 fw-bold titulo-vino">Vino Tinto Isabella</h3>
+                <p class="card-text small desc-vino flex-grow-1">
+                  Notas dulces y frutales representativas del Valle del Cauca, fermentado tradicionalmente.
+                </p>
+                <div class="d-flex justify-content-between align-items-center mt-3 pt-3 border-top border-light-subtle">
+                  <span class="fw-bold fs-5 precio-vino">$85.000 COP</span>
+                  <a href="contactanos.html" class="btn btn-sm btn-terracota">Comprar</a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- Tarjeta 2: Vino de Café -->
+          <div class="col-12 col-md-6 col-lg-4">
+            <article class="card h-100 cristal text-center p-3">
+              
+              <div id="carruselProd2" class="carousel slide" data-bs-ride="false">
+                <div class="carousel-inner rounded">
+                  <div class="carousel-item active">
+                    <img src="img-productores/prod-2.png" class="d-block w-100 rounded img-carrusel-card" alt="Productor de café">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="images-carrusel-aboutUs/foto-vinoCafe-aboutUs.png" class="d-block mx-auto img-fluid img-carrusel-botella" alt="Botella de Vino de Café">
+                  </div>
+                  <div class="carousel-item">
+                    <video class="d-block w-100 rounded video-carrusel-card" autoplay loop muted playsinline>
+                      <source src="https://assets.mixkit.co/videos/preview/mixkit-coffee-beans-falling-in-slow-motion-41315-large.mp4" type="video/mp4">
+                      Tu navegador no soporta videos.
+                    </video>
+                  </div>
+                </div>
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#carruselProd2" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Anterior</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carruselProd2" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Siguiente</span>
+                </button>
+              </div>
+
+              <div class="card-body d-flex flex-column pt-3">
+                <span class="text-uppercase small texto-cepa mb-1">Especial de Altura</span>
+                <h3 class="card-title h5 fw-bold titulo-vino">Vino Artesanal de Café</h3>
+                <p class="card-text small desc-vino flex-grow-1">
+                  Notas tostadas de café combinadas con cuerpo suave y un final acaramelado.
+                </p>
+                <div class="d-flex justify-content-between align-items-center mt-3 pt-3 border-top border-light-subtle">
+                  <span class="fw-bold fs-5 precio-vino">$92.000 COP</span>
+                  <a href="contactanos.html" class="btn btn-sm btn-terracota">Comprar</a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- Tarjeta 3: Vino de Frutas -->
+          <div class="col-12 col-md-6 col-lg-4">
+            <article class="card h-100 cristal text-center p-3">
+              
+              <div id="carruselProd3" class="carousel slide" data-bs-ride="false">
+                <div class="carousel-inner rounded">
+                  <div class="carousel-item active">
+                    <img src="img-productores/prod-3.png" class="d-block w-100 rounded img-carrusel-card" alt="Productor de maracuyá">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="images-carrusel-aboutUs/foto-vinoMaracuya-aboutUs.png" class="d-block mx-auto img-fluid img-carrusel-botella" alt="Botella de Vino Tropical">
+                  </div>
+                  <div class="carousel-item">
+                    <video class="d-block w-100 rounded video-carrusel-card" autoplay loop muted playsinline>
+                      <source src="https://assets.mixkit.co/videos/preview/mixkit-grapes-in-a-vineyard-41589-large.mp4" type="video/mp4">
+                      Tu navegador no soporta videos.
+                    </video>
+                  </div>
+                </div>
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#carruselProd3" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Anterior</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carruselProd3" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Siguiente</span>
+                </button>
+              </div>
+
+              <div class="card-body d-flex flex-column pt-3">
+                <span class="text-uppercase small texto-cepa mb-1">Frutos Tropicales</span>
+                <h3 class="card-title h5 fw-bold titulo-vino">Vino de Maracuyá</h3>
+                <p class="card-text small desc-vino flex-grow-1">
+                  Perfil cítrico y refrescante, ideal para aperitivos y celebraciones familiares.
+                </p>
+                <div class="d-flex justify-content-between align-items-center mt-3 pt-3 border-top border-light-subtle">
+                  <span class="fw-bold fs-5 precio-vino">$78.000 COP</span>
+                  <a href="contactanos.html" class="btn btn-sm btn-terracota">Comprar</a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+        </div>
+
+        <!-- Botón al catálogo general -->
+        <div class="text-center mt-5">
+          <a href="contactanos.html" class="btn btn-outline-catalogo px-4 py-2 rounded-pill">Ver todo el catálogo</a>
+        </div>
+
+      </div>
+    </section>
 
         <!-- PRUEBA SOCIAL -->
         <section class="prueba-social">
