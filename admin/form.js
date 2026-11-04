@@ -1,5 +1,7 @@
 // INSERCIÓN DE VALORES EN LOS DATOS DEL FORM
 
+// Este comentario es de prueba (se eliminará cuando se compruebe si está bien)
+
 // Calling elemento form al js
 const formulario = document.querySelector("form");
 
