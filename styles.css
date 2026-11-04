@@ -726,3 +726,31 @@ input {
   background-color: var(--crema-suave, #EFD2AF);
   color: var(--marron-tinto, #5E2D23);
 }
+
+/* Estilos Banner */
+
+.bannerValle {
+  min-height: 60vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url('imagenes/fondobanner.jpg') center/cover no-repeat;
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.btnProbarValle {
+  background-color: transparent;
+  border-radius: 20px;
+  border-color: var(--blanco-marfil);
+  color: var(--blanco-marfil);
+}
+
+.btnProbarValle:hover {
+  background-color: var(--vino-tinto);
+  border-radius: 20px;
+  border-color: var(--blanco-marfil);
+  color: var(--blanco-marfil);
+}
+
+.pastillaValle {
+  background-color: var(--verde-oliva);
+}
