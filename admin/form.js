@@ -19,7 +19,7 @@ event.preventDefault();
     };
 
 
-    
+
     // Console log para prueba
     console.log(addProducto);
 
@@ -34,6 +34,7 @@ formulario.addEventListener("keydown", (event) => {
             formulario.querySelectorAll("input, select, textarea")
         );
 
+        // Se define Indice Actual para el Enter
         const indiceActual = campos.indexOf(event.target);
 
         if (indiceActual < campos.length - 1) {
