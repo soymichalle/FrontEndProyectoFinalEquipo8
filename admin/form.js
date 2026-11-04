@@ -18,6 +18,8 @@ event.preventDefault();
         imagen: document.getElementById("imagen-producto").value
     };
 
+
+    
     // Console log para prueba
     console.log(addProducto);
 
