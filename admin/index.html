@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,19 +17,234 @@
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 
     <!-- Estilos propios -->
-    <link href="styles.css" rel="stylesheet">
+    <!--<link href="styles.css" rel="stylesheet">-->
 </head>
+
 <body>
+    <!-- HEADER FLOTANTE -->
+    <header class="header-flotante-container p-5">
+        <nav class="navbar cristal navbar-expand-lg navbar-dark">
+            <div class="container">
+                <!-- Logo-->
+                <a href="index.html" class="navbar-brand">
+                    <img src="../imagenes/logonegativo.svg" alt="Isotipo BoronVino en negativo">
+                </a>
+                <!-- Menu hamburguesa-->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuBoronVino"
+                    aria-controls="menuBoronVino" aria-expanded="false" aria-label="Abrir menú de navegación">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
 
+                <div class="collapse navbar-collapse" id="menuBoronVino">
+
+                    <ul class="navbar-nav mx-auto nav-links-bv">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="sobre-nosotros.html">Sobre nosotros</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contactanos.html">Contacto</a>
+                        </li>
+                    </ul>
+
+                    <div class="nav-acciones d-flex align-items-center gap-2">
+                        <a href="login.html" class="btn-login" aria-label="Iniciar sesión">
+                            <i class="fa-solid fa-user"></i>
+                            <span class="btn-login-texto">Login</span>
+                        </a>
+                        <a href="carrito.html" class="btn-carrito" aria-label="Carrito de compras, 0 productos">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <span class="carrito-badge">0</span>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main">
+
+        <h1>Gestión de Productos</h1>
+
+        <!-- FORMULARIO PARA CREAR PRODUCTOS -->
+        <section id="formulario-producto">
+
+            <h2>Añadir Nuevo Producto</h2>
+
+            <form id="form-producto">
+
+                <div>
+                    <label for="nombre-producto">Nombre del Producto</label>
+                    <input type="text" id="nombre-producto">
+                </div>
+
+                <div>
+                    <label for="nombre-proveedor">Nombre del Proveedor</label>
+                    <input type="text" id="nombre-proveedor">
+                </div>
+
+                <div>
+                    <label for="nombre-proveedor">Nombre del Proveedor</label>
+                    <input type="text" id="nombre-proveedor">
+                </div>
+
+                <div>
+                    <label for="categoria-producto">Categoría del Producto</label>
+
+                    <select id="categoria-producto">
+                        <option value="">Seleccione una categoría</option>
+                        <option value="Vinos">Vinos</option>
+                        <option value="Tintos">Tintos</option>
+                        <option value="Blancos">Blancos</option>
+                        <option value="Rosados">Rosados</option>
+                        <option value="Otros">Otros</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="precio-producto">Precio del Producto</label>
+                    <input type="number" id="precio-producto">
+                </div>
+
+                <div>
+                    <label for="stock-producto">Stock</label>
+                    <input type="number" id="stock-producto">
+                </div>
+
+                <div>
+                    <label for="imagen-producto">Subir Imagen</label>
+                    <input type="file" id="imagen-producto" accept="image/*">
+                </div>
+
+                <div>
+                    <img id="vista-previa" src="" alt="Vista previa de imagen">
+                </div>
+
+                <button type="submit" id="guardar-producto">
+                    Guardar Producto
+                </button>
+
+            </form>
+
+        </section>
 
 
+        <!-- LISTADO DE PRODUCTOS -->
+        <section id="lista-productos">
 
+            <h2>Lista de Productos</h2>
 
+            <input
+                type="search"
+                id="buscador-productos"
+                placeholder="Buscar producto..."
+            >
 
+            <table id="tabla-productos">
 
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Miniatura</th>
+                        <th>Nombre</th>
+                        <th>Proveedor</th>
+                        <th>Categoría</th>
+                        <th>Precio</th>
+                        <th>Stock</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+
+                <tbody id="cuerpo-tabla">
+
+                    <!-- Los productos se agregarán dinámicamente con JavaScript -->
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer-boronvino cristal mt-5 py-5">
+        <div class="container">
+            <div class="row g-4 align-items-start">
+
+                <!-- Columna 1: Marca y descripción -->
+                <div class="col-12 col-md-4">
+                    <h3 class="fw-bold mb-3 footer-brand">BORONVINO</h3>
+                    <p class="footer-text">
+                        Vino artesanal elaborado con tradición, dedicación y apoyo a las familias campesinas y pequeños
+                        productores del Valle del Cauca.
+                    </p>
+                </div>
+
+                <!-- Columna 2: Enlaces de navegación -->
+                <div class="col-12 col-md-4 text-md-center">
+                    <h5 class="fw-bold mb-3 footer-subtitle">Navegación</h5>
+                    <ul class="list-unstyled footer-menu">
+                        <li class="mb-2"><a href="index.html" class="footer-link">Inicio</a></li>
+                        <li class="mb-2"><a href="contactanos.html" class="footer-link">Contactenos</a></li>
+                        <li class="mb-2"><a href="sobre-nosotros.html" class="footer-link">Acerca de nosotros</a></li>
+                        <li class="mb-2"><a href="#catalogo" class="footer-link">Catalogo</a></li>
+                        <li class="mb-2"><a href="#login" class="footer-link">Login</a></li>
+                        <li cass="mb-2"><a href="#Carrito" class="footer-link">Carrito de compras</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna 3: Información de contacto -->
+                <div class="col-12 col-md-4 text-md-end">
+                    <h5 class="fw-bold mb-3 footer-subtitle">Contacto</h5>
+                    <p class="mb-1 footer-text">
+                        <i class="fa-solid fa-location-dot me-2"></i>Valle del Cauca, Colombia
+                    </p>
+                    <p class="mb-2 footer-text" target="_blank">
+                        <i class="fa-solid fa-envelope me-2"></i>info@boronvino.com
+                    </p>
+
+                    <ul class="list-unstyled footer-social mt-3 mb-3">
+                        <li class="mb-2">
+                            <a target="_blank">
+                                <i class="fa-brands fa-instagram me-2"></i>Instagram
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a>
+                                <i class="fa-brands fa-facebook-f me-2"></i>Facebook
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a>
+                                <i class="fa-brands fa-tiktok me-2"></i>TikTok
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a>
+                                <i class="fa-brands fa-whatsapp me-2"></i>WhatsApp
+                            </a>
+                        </li>
+                    </ul>
+
+                    <a href="#botonTOcatalogo" class="btn btn-sm btn-terracota mt-2">Visitar Tienda</a>
+                </div>
+            </div>
+
+            <hr class="my-4 footer-divider">
+
+            <div class="text-center">
+                <p class="m-0 footer-copy">&copy; 2026 BoronVino. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
     <script src="app.js"></script>
 </body>
+
 </html>
