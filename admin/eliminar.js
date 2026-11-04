@@ -1,43 +1,58 @@
-let eliminarProducto = null;
+let idProductoAEliminar = null;
 
 function eliminarProducto(id) {
-    let productos = JSON.parse(localStorage.getItem("productos")) || [];
+
 
     let producto = null;
     for (let i = 0; i < productos.length; i++) {
-        if (productos[i].id === id) {
+        if (productos[i].ID === id) {
             producto = productos[i];
             break;
         }
     }
 
+  
     if (producto === null) {
-        mostrarToast("No se encontro el producto.");
+        mostrarMensaje("No se encontró el producto.");
         return;
     }
 
+
     idProductoAEliminar = id;
 
+
     document.getElementById("nombreProductoEliminar").textContent = producto.nombre;
+
 
     let modal = new bootstrap.Modal(document.getElementById("modalEliminar"));
     modal.show();
 }
 
-function confirmarEliminarProducto() {
+
+function confirmarEliminar() {
+
 
     if (idProductoAEliminar === null) {
-        mostrarToast("No hay producto seleccionado.");
-        return;
-    }
-    let productos = JSON.parse(localStorage.getItem("productos")) || [];
-
-    if (productosNuevos.length === productos.length) {
-        mostrarToast("El producto no existe o ya fue eliminado.");
+        mostrarMensaje("No hay producto seleccionado.");
         return;
     }
 
-    localStorage.setItem("productos", JSON.stringify(productosNuevos));
+    let posicion = -1;
+    for (let i = 0; i < productos.length; i++) {
+        if (productos[i].ID === idProductoAEliminar) {
+            posicion = i;
+            break;
+        }
+    }
+
+
+    if (posicion === -1) {
+        mostrarMensaje("El producto no existe o ya fue eliminado.");
+        return;
+    }
+
+    productos.splice(posicion, 1);
+
 
     let modalElemento = document.getElementById("modalEliminar");
     let modal = bootstrap.Modal.getInstance(modalElemento);
@@ -45,21 +60,39 @@ function confirmarEliminarProducto() {
         modal.hide();
     }
 
-    mostrarToast("Producto eliminado exitosamente.");
+
+    mostrarMensaje("Producto eliminado exitosamente");
+
 
     idProductoAEliminar = null;
 
-    if (typeof renderizarTabla === "function") {
-        renderizarTabla();
-    }
+
+    mostrarProductos();
 }
 
-function mostrarMensaje(mensaje, tipo) {
 
+function mostrarMensaje(mensaje) {
     alert(mensaje);
-
-
 }
 
 
+document.addEventListener("DOMContentLoaded", function () {
 
+    let botonConfirmar = document.getElementById("btnConfirmarEliminar");
+    if (botonConfirmar !== null) {
+        botonConfirmar.addEventListener("click", confirmarEliminar);
+    }
+
+
+    let tabla = document.getElementById("cuerpo-tabla");
+    if (tabla !== null) {
+        tabla.addEventListener("click", function (evento) {
+      
+            if (evento.target.classList.contains("btn-eliminar")) {
+      
+                let id = Number(evento.target.dataset.id);
+                eliminarProducto(id);
+            }
+        });
+    }
+});
