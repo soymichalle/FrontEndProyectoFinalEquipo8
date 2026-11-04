@@ -21,6 +21,7 @@ event.preventDefault();
 
 
     // Console log para prueba
+    // Añado este comentario para prueba
     console.log(addProducto);
 
 });
