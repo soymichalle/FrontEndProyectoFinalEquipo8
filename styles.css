@@ -657,3 +657,72 @@ input {
   opacity: 0;
   transform: translateY(15px);
 }
+
+/* ===================================================
+   PRODUCTOS DESTACADOS - PALETA BORONVINO (JOHAN)
+   =================================================== */
+.badge-artesanal {
+  background-color: var(--verde-oliva, #5D5F0E);
+  color: #ffffff;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.titulo-destacados {
+  color: var(--crema-suave, #EFD2AF);
+  font-family: var(--font-title, serif);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.subtitulo-destacados {
+  color: var(--blanco-marfil, #ECE7D3);
+  opacity: 0.85;
+  max-width: 600px;
+}
+
+.img-carrusel-card,
+.video-carrusel-card {
+  height: 220px;
+  object-fit: cover;
+}
+
+.img-carrusel-botella {
+  height: 220px;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.35));
+}
+
+.texto-cepa {
+  color: var(--crema-suave, #EFD2AF);
+  opacity: 0.75;
+  letter-spacing: 0.8px;
+}
+
+.titulo-vino {
+  color: var(--crema-suave, #EFD2AF);
+  font-family: var(--font-title, serif);
+}
+
+.desc-vino {
+  color: var(--blanco-marfil, #ECE7D3);
+  opacity: 0.85;
+  line-height: 1.5;
+}
+
+.precio-vino {
+  color: var(--crema-suave, #EFD2AF);
+}
+
+.btn-outline-catalogo {
+  border: 1px solid var(--crema-suave, #EFD2AF);
+  color: var(--crema-suave, #EFD2AF);
+  background: transparent;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-catalogo:hover {
+  background-color: var(--crema-suave, #EFD2AF);
+  color: var(--marron-tinto, #5E2D23);
+}
