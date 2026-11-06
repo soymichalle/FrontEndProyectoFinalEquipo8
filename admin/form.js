@@ -16,6 +16,7 @@ event.preventDefault();
         proveedor: document.getElementById("nombre-proveedor").value,
         categoria: document.getElementById("categoria-producto").value,
         precio: Number(document.getElementById("precio-producto").value),
+        precio: document.getElementById("precio-producto").value,
         stock: document.getElementById("stock-producto").value,
         imagen: document.getElementById("imagen-producto").value
     };
@@ -23,6 +24,7 @@ event.preventDefault();
 
 
     // Console log para prueba
+    // Añado este comentario para prueba
     console.log(addProducto);
 
 });
@@ -69,3 +71,4 @@ btnAgregarProducto.addEventListener("click", () => {
 });
 
 
+});
