@@ -73,6 +73,8 @@
         <div class="container text-center"> 
             <div class="row justify-content-center">
                 <div class="col-lg-6 md-6">
+
+                    <!-- Boton de agregar favoritos -->
                     <button id="btn-agregar-producto" class="btn btn-success mb-3">
                         Agregar Nuevo Producto
                     </button>
@@ -82,23 +84,28 @@
 
                         <h2>Añadir Nuevo Producto</h2>
 
+                        <!-- Abrimos etiqueta form para el formuario de productos -->
                         <form id="form-producto">
 
+                            <!-- Input para ID del producto -->
                             <div class="form-floating mb-3">  
                                 <input type="text" id="id-producto" class="form-control">
                                 <label for="id-producto">ID del Producto</label> 
                             </div>
 
+                            <!-- Input para Nombre de Producto -->
                             <div class="form-floating mb-3">
                                 <input type="text" id="nombre-producto" class="form-control">
                                 <label for="nombre-producto">Nombre del Producto</label>
                             </div>
 
+                            <!-- Input para Nombre del Proveedor -->
                             <div class="form-floating mb-3">
                                 <input type="text" id="nombre-proveedor" class="form-control">
                                 <label for="nombre-proveedor" >Nombre del Proveedor</label>
                             </div>
 
+                            <!-- Input para categorias -->
                             <div class="input-group mb-3">
                                 <label class="input-group-text" for="categoria-producto">Categoría del Producto</label>
                                 <select id="categoria-producto" class="form-select form-select-lg">
