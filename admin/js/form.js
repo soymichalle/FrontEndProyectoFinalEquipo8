@@ -16,7 +16,6 @@ event.preventDefault();
         proveedor: document.getElementById("nombre-proveedor").value,
         categoria: document.getElementById("categoria-producto").value,
         precio: Number(document.getElementById("precio-producto").value),
-        precio: document.getElementById("precio-producto").value,
         stock: document.getElementById("stock-producto").value,
         imagen: document.getElementById("imagen-producto").value
     };
@@ -72,3 +71,38 @@ btnAgregarProducto.addEventListener("click", () => {
 
 
 
+// FUNCIONALIDAD DEL BOTON GUARDAR PRODUCTOS
+
+// Calling ID de form de productos
+const form = document.getElementById("form-producto");
+
+// Local Storage = JSON.parse
+let productos = JSON.parse(localStorage.getItem("productos")) || [];
+
+// Creamos el evento para el boton de guardar productos
+if (form) {
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        // Calling por ID lo que se está escribiendo en los inputs del form
+        const aggProducto = {
+            id: Date.now(),
+            nombre: document.getElementById("nombre-producto").value,
+            proveedor: document.getElementById("nombre-proveedor").value,
+            categoria: document.getElementById("categoria-producto").value,
+            precio: Number(document.getElementById("precio-producto").value),
+            stock: Number(document.getElementById("stock-producto").value),
+            imagen: document.getElementById("imagen-producto").value
+        };
+
+        // Añadimos los datos de "aggProductos" a lo que se va guardando en "productos" de JSON.parse
+        productos.push(aggProducto);
+
+        // LocalStorge setItem para guardar los datos actualizados
+        localStorage.setItem("productos",JSON.stringify(productos));
+
+        alert("El producto se guardó exitosamente.")
+
+        mostrarProductos();
+    });
+}
