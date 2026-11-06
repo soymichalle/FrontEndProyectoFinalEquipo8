@@ -1,4 +1,5 @@
 // ! Seteos de prueba eliminar cuando corresponde
+const imagenTemporal = "../imagenes-categorias-inicio/foto_cat_vino_seco_cuadrada.png";
 const categorias = ["Vinos", "Tintos", "Blancos", "Rosados", "Otros"];
 const productos = [
     {
@@ -8,25 +9,25 @@ const productos = [
         categoria: "Tintos",
         precio: 45000,
         stock: 20,
-        imagen: "vino.jpg"
+        imagen: imagenTemporal
     },
     {
         ID: 2,
-        nombre: "Vino tinto",
+        nombre: "Vino blanco",
         nombreProveedor: "Bodega San José",
         categoria: "Blancos",
         precio: 45000,
         stock: 20,
-        imagen: "vino.jpg"
+        imagen: imagenTemporal
     },
     {
         ID: 3,
-        nombre: "Vino tinto",
+        nombre: "Vino rosado",
         nombreProveedor: "Bodega San José",
         categoria: "Otros",
         precio: 45000,
         stock: 20,
-        imagen: "vino.jpg"
+        imagen: imagenTemporal
     }
 ];
 
@@ -67,7 +68,7 @@ function mostrarProductos() {
             <td class="campo-stock">${producto.stock}</td>
 
             <td>
-                <img src="${producto.imagen}" alt="${producto.nombre}" width="50">
+                <img src="${producto.imagen}"  alt="${producto.nombre}" class="imagen-producto">
             </td>
 
             <td>
