@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Administrador</title>
+
+    <title>Administrador | BoronVino</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,72 +18,79 @@
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 
     <!-- Estilos propios -->
-    <!--<link href="styles.css" rel="stylesheet">-->
+    <link rel="stylesheet" href="../styles.css">
 </head>
 
 <body>
+
     <!-- HEADER FLOTANTE -->
-    <header class="header-flotante-container p-5">
-        <nav class="navbar cristal navbar-expand-lg navbar-dark">
-            <div class="container">
-                <!-- Logo-->
-                <a href="index.html" class="navbar-brand">
-                    <img src="../imagenes/logonegativo.svg" alt="Isotipo BoronVino en negativo">
-                </a>
-                <!-- Menu hamburguesa-->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuBoronVino"
-                    aria-controls="menuBoronVino" aria-expanded="false" aria-label="Abrir menú de navegación">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+    <header class=" header-flotante-container p-5">
+    <nav class="navbar cristal navbar-expand-lg navbar-dark">
+        <div class="container">
+            <!-- Logo-->
+            <a href="index.html" class="navbar-brand">
+                <img src="../imagenes/logonegativo.svg" alt="Isotipo BoronVino en negativo">
+            </a>
+            <!-- Menu hamburguesa-->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuBoronVino"
+                aria-controls="menuBoronVino" aria-expanded="false" aria-label="Abrir menú de navegación">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
 
-                <div class="collapse navbar-collapse" id="menuBoronVino">
+            <div class="collapse navbar-collapse" id="menuBoronVino">
 
-                    <ul class="navbar-nav mx-auto nav-links-bv">
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.html">Inicio</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="sobre-nosotros.html">Sobre nosotros</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="contactanos.html">Contacto</a>
-                        </li>
-                    </ul>
+                <ul class="navbar-nav mx-auto nav-links-bv">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="sobre-nosotros.html">Sobre nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contactanos.html">Contacto</a>
+                    </li>
+                </ul>
 
-                    <div class="nav-acciones d-flex align-items-center gap-2">
-                        <a href="login.html" class="btn-login" aria-label="Iniciar sesión">
-                            <i class="fa-solid fa-user"></i>
-                            <span class="btn-login-texto">Login</span>
-                        </a>
-                        <a href="carrito.html" class="btn-carrito" aria-label="Carrito de compras, 0 productos">
-                            <i class="fa-solid fa-cart-shopping"></i>
-                            <span class="carrito-badge">0</span>
-                        </a>
-                    </div>
-
+                <div class="nav-acciones d-flex align-items-center gap-2">
+                    <a href="login.html" class="btn-login" aria-label="Iniciar sesión">
+                        <i class="fa-solid fa-user"></i>
+                        <span class="btn-login-texto">Login</span>
+                    </a>
+                    <a href="carrito.html" class="btn-carrito" aria-label="Carrito de compras, 0 productos">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <span class="carrito-badge">0</span>
+                    </a>
                 </div>
+
             </div>
-        </nav>
+        </div>
+    </nav>
     </header>
 
     <main class="main">
 
-        <h1>Gestión de Productos</h1>
+        <div class="text-center mt-5">
+            <h1 class="title">Gestor de Productos</h1>
+            <span class="subtitle">Vista Administrador</span>
+        </div>
 
-        <div class="container text-center"> 
-            <div class="row justify-content-center">
-                <div class="col-lg-6 md-6">
+        <div class="container-fluid px-4 mt-5">
+            <div class="cristal p-4">
+                <div class="row g-4">
+                    <div class="col-12 col-xl-4">
 
-                    <!-- Boton de agregar favoritos -->
-                    <button id="btn-agregar-producto" class="btn btn-success mb-3">
-                        Agregar Nuevo Producto
-                    </button>
+                        <div class="d-flex justify-content-center py-3">
+                            <button id="btn-agregar-producto" class="btn btn-terracota">
+                                <i class="bi bi-plus icono-blanco"></i>
+                                <span class="subtitle">Agregar Nuevo Producto</span>
+                            </button>
+                        </div>
 
-                    <!-- FORMULARIO PARA CREAR PRODUCTOS -->
-                    <section id="formulario-producto" class="d-none">
+                        <!-- FORMULARIO PARA CREAR PRODUCTOS -->
+                        <section id="formulario-producto" class="d-none p-3">
 
-                        <h2>Añadir Nuevo Producto</h2>
+                            <h2>Añadir Nuevo Producto</h2>
 
                         <!-- Abrimos etiqueta form para el formuario de productos -->
                         <form id="form-producto">
@@ -93,105 +101,130 @@
                                 <label for="nombre-producto">Nombre del Producto</label>
                             </div>
 
-                            <!-- Input para Nombre del Proveedor -->
-                            <div class="form-floating mb-3">
-                                <input type="text" id="nombre-proveedor" class="form-control">
-                                <label for="nombre-proveedor" >Nombre del Proveedor</label>
-                            </div>
+                            <!-- Abrimos etiqueta form para el formuario de productos -->
+                            <form id="form-producto" class="p-3 rounded-3">
 
-                            <!-- Input para categorias -->
-                            <div class="input-group mb-3">
-                                <label class="input-group-text" for="categoria-producto">Categoría del Producto</label>
-                                <select id="categoria-producto" class="form-select form-select-lg">
-                                    <option value="">Seleccione una categoría</option>
-                                    <option value="Vinos">Vinos</option>
-                                    <option value="Tintos">Tintos</option>
-                                    <option value="Blancos">Blancos</option>
-                                    <option value="Rosados">Rosados</option>
-                                    <option value="Otros">Otros</option>
-                                </select>
-                            </div>
-                            
-                            <!-- Input para precio con clase de Boostrap -->
-                            <div class="container">
-                                <div class="row justify-content-evenly">
-                                    <div class="col-lg-6 col-md-6">
-                                        <label for="precio-producto">Precio del Producto</label>
+                                <!-- Input para ID del producto -->
+                                <div class="form-floating mb-3">
+                                    <input type="text" id="id-producto" class="form-control">
+                                    <label for="id-producto">ID del Producto</label>
+                                </div>
+
+                                <!-- Input para Nombre de Producto -->
+                                <div class="form-floating mb-3">
+                                    <input type="text" id="nombre-producto" class="form-control">
+                                    <label for="nombre-producto">Nombre del Producto</label>
+                                </div>
+
+
+                                <!-- Input para Nombre del Proveedor -->
+                                <div class="form-floating mb-3">
+                                    <input type="text" id="nombre-proveedor" class="form-control">
+                                    <label for="nombre-proveedor">Nombre del Proveedor</label>
+                                </div>
+
+                                <!-- Input para categorias -->
+                                <div class="input-group mb-3">
+                                    <label class="input-group-text" for="categoria-producto">Categoría</label>
+                                    <select id="categoria-producto" class="form-select form-select-lg">
+                                        <option value="">Seleccione una categoría</option>
+                                        <option value="Vinos">Vinos</option>
+                                        <option value="Tintos">Tintos</option>
+                                        <option value="Blancos">Blancos</option>
+                                        <option value="Rosados">Rosados</option>
+                                        <option value="Otros">Otros</option>
+                                    </select>
+                                </div>
+
+                                <!-- Input para precio con clase de Boostrap -->
+                                <div class="row g-3">
+                                    <div class="col-12">
                                         <div class="input-group mb-3">
                                             <span class="input-group-text">$</span>
-                                            <input type="number" id="precio-producto" class="form-control" aria-label="Amount (to the nearest dollar)">
+                                            <input type="number" id="precio-producto" class="form-control"
+                                                aria-label="Amount (to the nearest dollar)" placeholder="80.000">
                                         </div>
                                     </div>
+                                </div>
 
-                                    <div class="col-lg-6 col-md-6">
+                                <div class="row g-3">
+                                    <div class="col-12">
                                         <div class="form-floating mb-3">
                                             <input type="number" id="stock-producto" class="form-control">
                                             <label for="stock-producto" class="">Stock</label>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="card p-3 shadow-sm">
-                                <div class="input-group mb-3">
-                                    <input type="file" id="imagen-producto" accept="image/*" class="form-control">
-                                    <label for="imagen-producto" class="input-group-text">Subir Imagen</label>
+
+                                <div class="card p-3 shadow-sm">
+                                    <div class="input-group mb-3">
+                                        <input type="file" id="imagen-producto" accept="image/*" class="form-control">
+                                        <label for="imagen-producto" class="input-group-text">Subir Imagen</label>
+                                    </div>
+
+                                    <div>
+                                        <img id="vista-previa" class="img-thumbnail mt-3 mb-3 d-none" src=""
+                                            alt="Vista previa de imagen">
+                                    </div>
                                 </div>
 
-                                <div>
-                                    <img id="vista-previa" class="img-thumbnail mt-3 mb-3 d-none" src="" alt="Vista previa de imagen">
+
+                                <div class="py-3">
+                                    <button type="submit" id="guardar-producto" class="btn btn-terracota mb-3">
+                                        Guardar Producto
+                                    </button>
+                                </div>
+
+                            </form>
+                        </section>
+                    </div>
+
+                    <div class="cristal col-12 col-xl-8">
+
+                        <!-- LISTADO DE PRODUCTOS -->
+                        <section id="lista-productos">
+                            <div class="m-3">
+                                <div class="row">
+
+                                    <div class="col-12 col-md-6">
+                                        <span class="subtitle">CATÁLOGO</span>
+                                        <h3>Lista de Productos</h3>
+                                    </div>
+
+                                    <label class="col-12 col-md-6">
+                                        <i class="bi bi-search" aria-hidden="true"></i>
+                                        <input type="search" id="buscador-productos" placeholder="Buscar producto..."
+                                            aria-label="Buscar producto">
+                                    </label>
+
                                 </div>
                             </div>
 
+                            <div class="table-responsive">
+                                <table id="tabla-productos" class="table align-middle">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Miniatura</th>
+                                            <th>Nombre</th>
+                                            <th>Proveedor</th>
+                                            <th>Categoría</th>
+                                            <th>Precio</th>
+                                            <th>Stock</th>
+                                            <th>Acciones</th>
+                                        </tr>
+                                    </thead>
 
-                            <button type="submit" id="guardar-producto" class="btn btn-primary mb-3">
-                                Guardar Producto
-                            </button>
+                                    <tbody id="cuerpo-tabla">
+                                        <!-- Los productos se agregarán dinámicamente con JavaScript -->
+                                    </tbody>
 
-                        </form>
-
-                    </section>
-                </div>
-
-                <div class="col-lg-6 col-md-6">
-                    <!-- LISTADO DE PRODUCTOS -->
-                    <section id="lista-productos">
-
-                        <h2>Lista de Productos</h2>
-
-                        <input
-                            type="search"
-                            id="buscador-productos"
-                            placeholder="Buscar producto..."
-                        >
-
-                        <table id="tabla-productos">
-
-                            <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Miniatura</th>
-                                    <th>Nombre</th>
-                                    <th>Proveedor</th>
-                                    <th>Categoría</th>
-                                    <th>Precio</th>
-                                    <th>Stock</th>
-                                    <th>Acciones</th>
-                                </tr>
-                            </thead>
-
-                            <tbody id="cuerpo-tabla">
-
-                                <!-- Los productos se agregarán dinámicamente con JavaScript -->
-
-                            </tbody>
-
-                        </table>
-
-                    </section>
+                                </table>
+                            </div>
+                        </section>
+                    </div>
                 </div>
             </div>
-        </div>
-
     </main>
 
     <!-- FOOTER -->
@@ -287,7 +320,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
     <script src="app.js"></script>
-    <script src="/admin/form.js"></script>
+    <script src="form.js"></script>
     <script src="eliminar.js"></script>
     <script src="form.js"></script>
     <script src="listaProductos.js"></script>

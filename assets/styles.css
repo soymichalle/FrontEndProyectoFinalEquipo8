@@ -35,6 +35,19 @@ body {
   background-attachment: fixed;
 }
 
+.body-solid {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-image: none;
+  background-color: var(--vino-tinto);
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
 .main {
   padding-top: 150px;
 }
@@ -52,6 +65,23 @@ a,
 button,
 input {
   font-family: var(--font-text);
+}
+
+.title {
+  font-family: var(--font-title);
+  color: var(--blanco-marfil);
+}
+
+.subtitle {
+  font-family: var(--font-subtitle);
+  color: var(--blanco-marfil);
+  letter-spacing: 2px;
+  font-weight: lighter;
+}
+
+.icono-blanco {
+  color: var(--blanco-marfil);
+  font-size: 1rem;
 }
 
 /* Efecto cristal BoronVino */
@@ -753,4 +783,185 @@ input {
 
 .pastillaValle {
   background-color: var(--verde-oliva);
+}
+
+/* =================================
+   TABLA DE PRODUCTOS - ADMIN
+================================= */
+
+.tabla-contenedor {
+  background: rgba(255, 248, 238, 0.95);
+  border: 1px solid #d9c0a7;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 8px 25px rgba(35, 10, 10, 0.15);
+  overflow: hidden;
+}
+
+/* Encabezado */
+
+.tabla-encabezado {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 18px;
+}
+
+.tabla-encabezado h2 {
+  color: #481c22;
+  font-family: var(--fuente-titulos);
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.tabla-encabezado p {
+  color: #85665b;
+  font-size: 0.85rem;
+  margin: 5px 0 0;
+}
+
+#buscador-productos {
+  max-width: 220px;
+  border: 1px solid #c9aa91;
+  border-radius: 20px;
+  background-color: #fffaf4;
+  font-size: 0.85rem;
+}
+
+/* Tabla */
+#tabla-productos {
+  width: 100%;
+  margin-bottom: 0;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+/* Cabecera */
+#tabla-productos thead th {
+  background-color: #ead8ca;
+  color: var(--vino-tinto);
+  font-weight: 700;
+  padding: 12px 10px;
+  border-bottom: 1px solid #d8bdab;
+}
+
+/* Cuerpo */
+
+#tabla-productos tbody td {
+  padding: 10px;
+  vertical-align: middle;
+  border-bottom: 1px solid var(--blanco-marfil);
+  background-color: transparent;
+  color: var(--blanco-marfil);
+  font-family: var(--font-subtitle);
+}
+
+#tabla-productos tr > *:first-child {
+  border-radius: 10px 0 0 10px;
+}
+
+#tabla-productos tr > *:last-child {
+  border-radius: 0 10px 10px 0;
+}
+
+/* Efecto hover */
+#tabla-productos tbody tr:hover td {
+  background-color: var(--blanco-marfil);
+  transition: background-color 0.2s ease;
+  color: var(--vino-tinto);
+}
+
+/* Miniaturas */
+#tabla-productos img {
+  width: 32px;
+  height: 45px;
+  object-fit: contain;
+}
+
+/* Categorías */
+
+.categoria-etiqueta {
+  display: inline-block;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.categoria-tintos {
+  background-color: #edc5c0;
+  color: #782d32;
+}
+
+.categoria-blancos {
+  background-color: #e6e5bd;
+  color: #5c592b;
+}
+
+.categoria-otros {
+  background-color: #dfc9e6;
+  color: #674075;
+}
+
+/* Acciones */
+
+.acciones-tabla {
+  display: flex;
+  gap: 7px;
+  justify-content: center;
+}
+
+.btn-tabla {
+  width: 29px;
+  height: 29px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.btn-editar {
+  background-color: #f7e0d3;
+  border: 1px solid #d88c77;
+  color: #762f2c;
+}
+
+.btn-eliminar {
+  background-color: #a92230;
+  border: 1px solid #a92230;
+  color: white;
+}
+
+.btn-tabla:hover {
+  transform: translateY(-2px);
+  filter: brightness(0.92);
+}
+
+/* Categorías */
+
+#tabla-productos .campo-categoria .form-select {
+  width: auto;
+  min-width: 65px;
+  padding: 4px 22px 4px 10px;
+  border: none;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  opacity: 1;
+  cursor: default;
+  background-position: right 6px center;
+}
+
+.imagen-producto {
+  width: 32px;
+  height: 45px;
+  object-fit: contain;
+  display: block;
+  margin: auto;
 }
