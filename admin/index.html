@@ -18,7 +18,7 @@
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 
     <!-- Estilos propios -->
-    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="/assets/styles.css">
 </head>
 
 <body>
@@ -92,6 +92,15 @@
 
                             <h2>Añadir Nuevo Producto</h2>
 
+                        <!-- Abrimos etiqueta form para el formuario de productos -->
+                        <form id="form-producto">
+                            
+                            <!-- Input para Nombre de Producto -->
+                            <div class="form-floating mb-3">
+                                <input type="text" id="nombre-producto" class="form-control">
+                                <label for="nombre-producto">Nombre del Producto</label>
+                            </div>
+
                             <!-- Abrimos etiqueta form para el formuario de productos -->
                             <form id="form-producto" class="p-3 rounded-3">
 
@@ -106,6 +115,7 @@
                                     <input type="text" id="nombre-producto" class="form-control">
                                     <label for="nombre-producto">Nombre del Producto</label>
                                 </div>
+
 
                                 <!-- Input para Nombre del Proveedor -->
                                 <div class="form-floating mb-3">
