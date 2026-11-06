@@ -28,7 +28,7 @@ body {
   display: flex;
   flex-direction: column;
   background-color: var(--vino-tinto);
-  background-image: url("./imagenes/fondo222222.png");
+  background-image: url("./imagenes/images-fondos/fondo222222.png");
   background-position: center top;
   background-repeat: no-repeat;
   background-size: cover;
