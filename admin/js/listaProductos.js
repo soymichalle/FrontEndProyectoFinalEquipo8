@@ -1,35 +1,15 @@
 // ! Seteos de prueba eliminar cuando corresponde
 const imagenTemporal = "../imagenes-categorias-inicio/foto_cat_vino_seco_cuadrada.png";
 const categorias = ["Vinos", "Tintos", "Blancos", "Rosados", "Otros"];
-const productos = [
-    {
-        ID: 1,
-        nombre: "Vino tinto",
-        nombreProveedor: "Bodega San José",
-        categoria: "Tintos",
-        precio: 45000,
-        stock: 20,
-        imagen: imagenTemporal
-    },
-    {
-        ID: 2,
-        nombre: "Vino blanco",
-        nombreProveedor: "Bodega San José",
-        categoria: "Blancos",
-        precio: 45000,
-        stock: 20,
-        imagen: imagenTemporal
-    },
-    {
-        ID: 3,
-        nombre: "Vino rosado",
-        nombreProveedor: "Bodega San José",
-        categoria: "Otros",
-        precio: 45000,
-        stock: 20,
-        imagen: imagenTemporal
-    }
-];
+
+function formatearPeso(valor) {
+    return new Intl.NumberFormat("es-CO", {
+        style: "currency",
+        currency: "COP",
+        minimumFractionDigits: 0
+    }).format(valor);
+}
+
 
 // * Función para mostrar los productos en la tabla
 function mostrarProductos() {
@@ -37,6 +17,9 @@ function mostrarProductos() {
     // * Se obtiene el cuerpo de la tabla y se limpia su contenido
     const tablaProductos = document.getElementById("cuerpo-tabla");
     tablaProductos.innerHTML = "";
+
+    const productos =
+        JSON.parse(localStorage.getItem("productos")) || [];
 
     // * Se recorre el array de productos y se crea una fila por cada producto
     productos.forEach(producto => {
@@ -64,7 +47,7 @@ function mostrarProductos() {
                 </select>
             </td>
 
-            <td class="campo-precio">${producto.precio}</td>
+            <td class="campo-precio">${formatearPeso(producto.precio)}</td>
             <td class="campo-stock">${producto.stock}</td>
 
             <td>

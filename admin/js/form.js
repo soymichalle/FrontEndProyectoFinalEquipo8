@@ -5,30 +5,7 @@
 // Calling elemento form al js
 const formulario = document.querySelector("form");
 
-// Evento para que cargue lo que el user o admin escriba
-formulario.addEventListener("submit", (event) => {
-event.preventDefault();
-
-    // Calling id de cada ítem del form del producto a añadir
-    const addProducto = {
-        id: document.getElementById("id-producto").value,
-        nombre: document.getElementById("nombre-producto").value,
-        proveedor: document.getElementById("nombre-proveedor").value,
-        categoria: document.getElementById("categoria-producto").value,
-        precio: Number(document.getElementById("precio-producto").value),
-        stock: document.getElementById("stock-producto").value,
-        imagen: document.getElementById("imagen-producto").value
-    };
-
-
-
-    // Console log para prueba
-    // Añado este comentario para prueba
-    console.log(addProducto);
-
-});
-
-// Evento para que cuando se haga enter se pase al siguiente recuadro y no se envíe directamente
+// Evento para que cuando se haga enter se pase al siguiente recuadro
 formulario.addEventListener("keydown", (event) => {
     if (event.key === "Enter") {
         event.preventDefault();
@@ -37,7 +14,6 @@ formulario.addEventListener("keydown", (event) => {
             formulario.querySelectorAll("input, select, textarea")
         );
 
-        // Se define Indice Actual para el Enter
         const indiceActual = campos.indexOf(event.target);
 
         if (indiceActual < campos.length - 1) {
@@ -46,8 +22,7 @@ formulario.addEventListener("keydown", (event) => {
     }
 });
 
-// Para ver imagen vista previa
-
+// Vista previa de imagen
 const inputImagen = document.getElementById("imagen-producto");
 const imgPrevia = document.getElementById("vista-previa");
 
@@ -60,8 +35,7 @@ inputImagen.addEventListener("change", () => {
     }
 });
 
-// Ocultar y mostrar con btn New Product
-
+// Mostrar/Ocultar formulario
 const btnAgregarProducto = document.getElementById("btn-agregar-producto");
 const formularioProducto = document.getElementById("formulario-producto");
 
@@ -69,40 +43,43 @@ btnAgregarProducto.addEventListener("click", () => {
     formularioProducto.classList.toggle("d-none");
 });
 
-
-
-// FUNCIONALIDAD DEL BOTON GUARDAR PRODUCTOS
-
-// Calling ID de form de productos
+// Guardar producto
 const form = document.getElementById("form-producto");
 
-// Local Storage = JSON.parse
-let productos = JSON.parse(localStorage.getItem("productos")) || [];
-
-// Creamos el evento para el boton de guardar productos
 if (form) {
     form.addEventListener("submit", (e) => {
         e.preventDefault();
 
-        // Calling por ID lo que se está escribiendo en los inputs del form
         const aggProducto = {
-            id: Date.now(),
+            ID: Date.now(),
             nombre: document.getElementById("nombre-producto").value,
-            proveedor: document.getElementById("nombre-proveedor").value,
+            nombreProveedor: document.getElementById("nombre-proveedor").value,
             categoria: document.getElementById("categoria-producto").value,
             precio: Number(document.getElementById("precio-producto").value),
             stock: Number(document.getElementById("stock-producto").value),
-            imagen: document.getElementById("imagen-producto").value
+            imagen: imgPrevia.src || ""
         };
 
-        // Añadimos los datos de "aggProductos" a lo que se va guardando en "productos" de JSON.parse
+        const productos =
+            JSON.parse(localStorage.getItem("productos")) || [];
+
         productos.push(aggProducto);
 
-        // LocalStorge setItem para guardar los datos actualizados
-        localStorage.setItem("productos",JSON.stringify(productos));
-
-        alert("El producto se guardó exitosamente.")
+        localStorage.setItem(
+            "productos",
+            JSON.stringify(productos)
+        );
 
         mostrarProductos();
+
+        form.reset();
+
+        imgPrevia.src = "";
+        imgPrevia.classList.add("d-none");
+
+        // Mensaje cuando el formulario se envie con éxito
+        alert("El producto se guardó exitosamente.");
+
+        
     });
 }
