@@ -19,7 +19,7 @@ document.getElementById("cuerpo-tabla").addEventListener("click", (e) => {
       
       const valNombre = celdaNombre.textContent.trim();
       const valProveedor = celdaProveedor.textContent.trim();
-      const valPrecio = celdaPrecio.textContent.trim();
+      const valPrecio = celdaPrecio.textContent.replace(/[^\d]/g, "");
       const valStock = celdaStock.textContent.trim();
 
       celdaNombre.innerHTML = `<input type="text" class="form-control form-control-sm input-nombre" value="${valNombre}">`;
@@ -48,6 +48,8 @@ document.getElementById("cuerpo-tabla").addEventListener("click", (e) => {
         return;
       }
 
+      const productos = JSON.parse(localStorage.getItem("productos")) || [];
+
       const productoEncontrado = productos.find(p => p.ID === idProducto);
       if (productoEncontrado) {
         productoEncontrado.nombre = nuevoNombre;
@@ -55,6 +57,11 @@ document.getElementById("cuerpo-tabla").addEventListener("click", (e) => {
         productoEncontrado.categoria = nuevaCategoria;
         productoEncontrado.precio = nuevoPrecio;
         productoEncontrado.stock = nuevoStock;
+
+        localStorage.setItem(
+            "productos",
+            JSON.stringify(productos)
+        );
       }
 
       celdaNombre.textContent = nuevoNombre;
@@ -62,7 +69,7 @@ document.getElementById("cuerpo-tabla").addEventListener("click", (e) => {
       
       selectCategoria.setAttribute("disabled", "true");
 
-      celdaPrecio.textContent = nuevoPrecio;
+      celdaPrecio.textContent = formatearPeso(nuevoPrecio);
       celdaStock.textContent = nuevoStock;
 
       boton.textContent = "Editar";

@@ -2,6 +2,8 @@ let idProductoAEliminar = null;
 
 function eliminarProducto(id) {
 
+    let productos =
+    JSON.parse(localStorage.getItem("productos")) || [];
 
     let producto = null;
     for (let i = 0; i < productos.length; i++) {
@@ -31,6 +33,8 @@ function eliminarProducto(id) {
 
 function confirmarEliminar() {
 
+    let productos =
+    JSON.parse(localStorage.getItem("productos")) || [];
 
     if (idProductoAEliminar === null) {
         mostrarMensaje("No hay producto seleccionado.");
@@ -52,6 +56,7 @@ function confirmarEliminar() {
     }
 
     productos.splice(posicion, 1);
+    localStorage.setItem("productos",JSON.stringify(productos));
 
 
     let modalElemento = document.getElementById("modalEliminar");

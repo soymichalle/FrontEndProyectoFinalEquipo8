@@ -26,6 +26,7 @@ function mostrarProductos() {
 
         // * Se crea un elemento <tr> para la fila de la tabla
         const fila = document.createElement("tr");
+        fila.setAttribute("data-id", producto.ID);
 
         // * Se crean las opciones del select de categorías, marcando como "selected" la categoría del producto
         const opcionesCategorias = categorias.map(categoria => `
