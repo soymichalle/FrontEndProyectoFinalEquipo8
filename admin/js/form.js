@@ -26,13 +26,25 @@ formulario.addEventListener("keydown", (event) => {
 const inputImagen = document.getElementById("imagen-producto");
 const imgPrevia = document.getElementById("vista-previa");
 
+let imagenBase64 = "";
+
 inputImagen.addEventListener("change", () => {
+
     const archivo = inputImagen.files[0];
 
-    if (archivo) {
-        imgPrevia.src = URL.createObjectURL(archivo);
+    if (!archivo) return;
+
+    const lector = new FileReader();
+
+    lector.onload = function (e) {
+
+        imagenBase64 = e.target.result;
+
+        imgPrevia.src = imagenBase64;
         imgPrevia.classList.remove("d-none");
-    }
+    };
+
+    lector.readAsDataURL(archivo);
 });
 
 // Mostrar/Ocultar formulario
@@ -57,8 +69,9 @@ if (form) {
             categoria: document.getElementById("categoria-producto").value,
             precio: Number(document.getElementById("precio-producto").value),
             stock: Number(document.getElementById("stock-producto").value),
-            imagen: imgPrevia.src || ""
+            imagen: imagenBase64
         };
+
 
         const productos =
             JSON.parse(localStorage.getItem("productos")) || [];
