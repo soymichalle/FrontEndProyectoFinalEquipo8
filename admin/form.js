@@ -78,5 +78,7 @@ if (form) {
         imgPrevia.classList.add("d-none");
 
         alert("El producto se guardó exitosamente.");
+
+        
     });
 }
