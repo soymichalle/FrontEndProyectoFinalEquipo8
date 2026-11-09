@@ -1,4 +1,5 @@
 // * Se definen constantes
+const rutaImg = "./assets/imagenes/images-productores/";
 const productores = [
 
     {
@@ -10,7 +11,7 @@ const productores = [
         ubicacion: "Guabas, Guacarí, Valle del Cauca",
         actividad: "Tradición vitivinícola",
         producto: "Uva Isabella",
-        imagen: "img-productores/prod-1.png",
+        imagen: rutaImg + "prod-1.png",
         testimonio: "Cada cosecha representa el esfuerzo de nuestras familias y el amor por la tierra que trabajamos."
     },
 
@@ -23,7 +24,7 @@ const productores = [
         ubicacion: "La Habana, Buga, Valle del Cauca",
         actividad: "Frutos de nuestra tierra",
         producto: "Lulo",
-        imagen: "img-productores/prod-2.png",
+        imagen: rutaImg + "prod-2.png",
         testimonio: "Los frutos de nuestra tierra tienen una historia que merece ser conocida y compartida."
     },
 
@@ -36,7 +37,7 @@ const productores = [
         ubicacion: "La Unión, Valle del Cauca",
         actividad: "Productos artesanales",
         producto: "Maracuyá",
-        imagen: "img-productores/prod-3.png",
+        imagen: rutaImg + "prod-3.png",
         testimonio: "Trabajar con nuestros frutos es una forma de conservar las tradiciones de nuestra región."
     },
 
@@ -49,7 +50,7 @@ const productores = [
         ubicacion: "Ulloa, Valle del Cauca",
         actividad: "Tradición cafetera",
         producto: "Café colombiano",
-        imagen: "img-productores/prod-4.png",
+        imagen: rutaImg + "prod-4.png",
         testimonio: "El café colombiano tiene una identidad especial, construida con paciencia y dedicación."
     },
 
@@ -62,7 +63,7 @@ const productores = [
         ubicacion: "La Unión, Valle del Cauca",
         actividad: "Tradición vitivinícola",
         producto: "Uva Isabella",
-        imagen: "img-productores/prod-5.png",
+        imagen: rutaImg + "prod-5.png",
         testimonio: "Llevo toda una vida entre estas viñas. Aprendí de mis padres que la tierra tiene sus tiempos y que las mejores cosas se hacen con paciencia. Cada cosecha guarda un pedacito de nuestra historia."
     }
 
