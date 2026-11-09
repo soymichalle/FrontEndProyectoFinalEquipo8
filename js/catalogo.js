@@ -1,65 +1,38 @@
-// Esperar a que cargue la pagina
+// Esperamos a que cargue todo el documento
 document.addEventListener('DOMContentLoaded', function () {
 
     const contenedor = document.getElementById('catalogo-productos');
-    const inputBuscar = document.getElementById('input-buscar');
-    const btnBuscar = document.getElementById('btn-buscar');
-    const selectOrdenar = document.getElementById('select-ordenar');
+    const inputBuscar = document.getElementById('input-buscar-catalogo');
+    const btnBuscar = document.getElementById('btn-buscar-catalogo');
+    const selectOrdenar = document.getElementById('select-ordenar-catalogo');
 
-    // 1. Obtener los productos que se guardaron desde el admin
-    function cargarProductos() {
-        const guardados = localStorage.getItem('productos');
-        if (guardados) {
-            return JSON.parse(guardados);
-        } else {
-            return [];
-        }
+    // Función sencilla para quitar tildes y comparar en minúsculas
+    function normalizar(texto) {
+        if (!texto) return '';
+        return texto.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim();
     }
 
-    // 2. Mostrar y filtrar los productos
-    function mostrarProductos() {
+    // 1. Cargar productos creados desde el Administrador (localStorage)
+    function cargarProductosStorage() {
         if (!contenedor) return;
 
-        let lista = cargarProductos();
-        const texto = inputBuscar ? inputBuscar.value.toLowerCase().trim() : '';
-        const orden = selectOrdenar ? selectOrdenar.value : 'recientes';
+        const guardados = localStorage.getItem('productos');
+        const lista = guardados ? JSON.parse(guardados) : [];
 
-        // Filtrar por nombre o categoria
-        if (texto !== '') {
-            lista = lista.filter(function (vino) {
-                const nombreOk = vino.nombre && vino.nombre.toLowerCase().includes(texto);
-                const categoriaOk = vino.categoria && vino.categoria.toLowerCase().includes(texto);
-                return nombreOk || categoriaOk;
-            });
-        }
-
-        // Ordenar la lista
-        if (orden === 'menor') {
-            lista.sort(function (a, b) {
-                return Number(a.precio) - Number(b.precio);
-            });
-        } else if (orden === 'mayor') {
-            lista.sort(function (a, b) {
-                return Number(b.precio) - Number(a.precio);
-            });
-        } else if (orden === 'recientes') {
-            lista.reverse();
-        }
-
-        // Limpiar solo los productos dinamicos agregados previamente por JS
-        const dinamicosPrevios = contenedor.querySelectorAll('.producto-dinamico');
-        dinamicosPrevios.forEach(function (card) {
+        // Limpiar dinámicos anteriores para no duplicar al recargar
+        const viejos = contenedor.querySelectorAll('.producto-dinamico');
+        viejos.forEach(function (card) {
             card.remove();
         });
 
-        // Crear e insertar cada card de los productos guardados
+        // Pintar los productos nuevos que guardó el admin
         lista.forEach(function (vino) {
             const col = document.createElement('div');
-            col.className = 'col-12 col-md-6 col-lg-4 producto-dinamico';
+            col.className = 'col-12 col-md-6 col-lg-4 tarjeta-vino producto-dinamico';
 
             col.innerHTML = `
-                <div class="card h-100 cristal text-white border-0">
-                    <img src="${vino.imagen || 'assets/imagenes/default.jpg'}" class="card-img-top" alt="${vino.nombre}" style="height: 220px; object-fit: cover;">
+                <div class="card h-100 cristal text-white border-0 shadow-sm">
+                    <img src="${vino.imagen || 'assets/imagenes/vino1.jpg'}" class="card-img-top" alt="${vino.nombre}" style="height: 220px; object-fit: cover;">
                     <div class="card-body d-flex flex-column">
                         <span class="badge bg-secondary mb-2 align-self-start">${vino.categoria}</span>
                         <h4 class="card-title text-capitalize">${vino.nombre}</h4>
@@ -76,19 +49,35 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // 3. Eventos del buscador y del selector
+    // 2. Filtrar tanto las 10 tarjetas base como las de localStorage
+    function filtrarVinos() {
+        if (!contenedor || !inputBuscar) return;
+
+        const textoBusqueda = normalizar(inputBuscar.value);
+        const tarjetas = contenedor.querySelectorAll('.tarjeta-vino');
+
+        tarjetas.forEach(function (tarjeta) {
+            const textoTarjeta = normalizar(tarjeta.textContent);
+
+            // Si el buscador está vacío o el texto coincide, se muestra; si no, se oculta
+            if (textoBusqueda === '' || textoTarjeta.includes(textoBusqueda)) {
+                tarjeta.classList.remove('d-none');
+            } else {
+                tarjeta.classList.add('d-none');
+            }
+        });
+    }
+
+    // 3. Escuchar los eventos del buscador
     if (inputBuscar) {
-        inputBuscar.addEventListener('input', mostrarProductos);
+        inputBuscar.addEventListener('input', filtrarVinos);
+        inputBuscar.addEventListener('keyup', filtrarVinos);
     }
 
     if (btnBuscar) {
-        btnBuscar.addEventListener('click', mostrarProductos);
+        btnBuscar.addEventListener('click', filtrarVinos);
     }
 
-    if (selectOrdenar) {
-        selectOrdenar.addEventListener('change', mostrarProductos);
-    }
-
-    // Ejecutar al cargar la vista
-    mostrarProductos();
+    // Cargar los productos de localStorage al abrir la página
+    cargarProductosStorage();
 });
