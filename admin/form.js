@@ -77,6 +77,7 @@ if (form) {
         imgPrevia.src = "";
         imgPrevia.classList.add("d-none");
 
+        // Mensaje cuando el formulario se envie con éxito
         alert("El producto se guardó exitosamente.");
 
         
