@@ -28,7 +28,7 @@ body {
   display: flex;
   flex-direction: column;
   background-color: var(--vino-tinto);
-  background-image: url("./imagenes/fondo222222.png");
+  background-image: url("./imagenes/images-fondos/fondo222222.png");
   background-position: center top;
   background-repeat: no-repeat;
   background-size: cover;
@@ -964,4 +964,13 @@ input {
   object-fit: contain;
   display: block;
   margin: auto;
+}
+
+/* color de los enlaces del navbar flotante */
+
+.header-flotante-container .navbar .nav-link {
+  color: var(--crema-suave); 
+}
+.header-flotante-container .navbar .nav-link:hover {
+  color: var(--terracota); 
 }
