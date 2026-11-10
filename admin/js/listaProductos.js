@@ -1,6 +1,17 @@
 // ! Seteos de prueba eliminar cuando corresponde
 const categorias = ["Vinos", "Tintos", "Blancos", "Rosados", "Otros"];
 
+// * Función para dar formato al precio en pesos colombianos
+function formatearPeso(valor) {
+
+    return new Intl.NumberFormat("es-CO", {
+        style: "currency",
+        currency: "COP",
+        maximumFractionDigits: 0
+    }).format(valor);
+
+}
+
 // * Función para mostrar los productos en la tabla
 export function mostrarProductos() {
 
@@ -48,7 +59,7 @@ export function mostrarProductos() {
         fila.innerHTML = `
             <td>${producto.id}</td>
             <td class="campo-nombre">${producto.nombre}</td>
-            <td class="campo-proveedor">${producto.nombreProveedor}</td>
+            <td class="campo-proveedor">${producto.proveedor}</td>
 
             <td class="campo-categoria">
                 <select class="form-select" disabled>
