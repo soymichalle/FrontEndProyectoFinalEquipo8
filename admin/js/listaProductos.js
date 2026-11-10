@@ -56,7 +56,7 @@ export function mostrarProductos() {
                 </select>
             </td>
 
-            <td class="campo-precio">${producto.precio}</td>
+            <td class="campo-precio">${formatearPeso(producto.precio)}</td>
             <td class="campo-stock">${producto.stock}</td>
 
             <td>
