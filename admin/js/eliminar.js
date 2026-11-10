@@ -1,28 +1,28 @@
+import { mostrarProductos } from "./listaProductos.js";
+
 let idProductoAEliminar = null;
 
 function eliminarProducto(id) {
 
-
+    // * Se recuperan los productos de localStorage
+    const productos = JSON.parse(localStorage.getItem("productos")) || [];
     let producto = null;
+
     for (let i = 0; i < productos.length; i++) {
-        if (productos[i].ID === id) {
+        if (productos[i].id === id) {
             producto = productos[i];
             break;
         }
     }
 
-  
     if (producto === null) {
         mostrarMensaje("No se encontró el producto.");
         return;
     }
 
-
     idProductoAEliminar = id;
 
-
     document.getElementById("nombreProductoEliminar").textContent = producto.nombre;
-
 
     let modal = new bootstrap.Modal(document.getElementById("modalEliminar"));
     modal.show();
@@ -31,15 +31,17 @@ function eliminarProducto(id) {
 
 function confirmarEliminar() {
 
-
     if (idProductoAEliminar === null) {
         mostrarMensaje("No hay producto seleccionado.");
         return;
     }
+    
+    // * Recuperamos los productos de localStorage
+    let productos = JSON.parse(localStorage.getItem("productos")) || [];
 
     let posicion = -1;
     for (let i = 0; i < productos.length; i++) {
-        if (productos[i].ID === idProductoAEliminar) {
+        if (productos[i].id === idProductoAEliminar) {
             posicion = i;
             break;
         }
@@ -53,6 +55,7 @@ function confirmarEliminar() {
 
     productos.splice(posicion, 1);
 
+    localStorage.setItem("productos", JSON.stringify(productos));
 
     let modalElemento = document.getElementById("modalEliminar");
     let modal = bootstrap.Modal.getInstance(modalElemento);
@@ -87,9 +90,9 @@ document.addEventListener("DOMContentLoaded", function () {
     let tabla = document.getElementById("cuerpo-tabla");
     if (tabla !== null) {
         tabla.addEventListener("click", function (evento) {
-      
+
             if (evento.target.classList.contains("btn-eliminar")) {
-      
+
                 let id = Number(evento.target.dataset.id);
                 eliminarProducto(id);
             }
