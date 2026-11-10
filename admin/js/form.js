@@ -1,98 +1,131 @@
-// INSERCIÓN DE VALORES EN LOS DATOS DEL FORM
+import { mostrarProductos } from "./listaProductos.js";
 
-// Este comentario es de prueba (se eliminará cuando se compruebe si está bien)
+// Se definen elementos del DOM
+const formulario = document.getElementById("form-producto");
+const formularioProducto = document.getElementById("formulario-producto");
 
-// Calling elemento form al js
-const formulario = document.querySelector("form");
+const btnAgregarProducto = document.getElementById("btn-agregar-producto");
 
-// Evento para que cuando se haga enter se pase al siguiente recuadro
-formulario.addEventListener("keydown", (event) => {
-    if (event.key === "Enter") {
-        event.preventDefault();
-
-        const campos = Array.from(
-            formulario.querySelectorAll("input, select, textarea")
-        );
-
-        const indiceActual = campos.indexOf(event.target);
-
-        if (indiceActual < campos.length - 1) {
-            campos[indiceActual + 1].focus();
-        }
-    }
-});
-
-// Vista previa de imagen
 const inputImagen = document.getElementById("imagen-producto");
 const imgPrevia = document.getElementById("vista-previa");
 
-let imagenBase64 = "";
+const inputId = document.getElementById("id-producto");
 
+// Se genera ID
+function generarId() {
+
+    const productos = JSON.parse(localStorage.getItem("productos")) || [];
+
+    if (productos.length === 0) {
+        return 1;
+    }
+
+    const ids = productos.map(producto => Number(producto.id));
+
+    return Math.max(...ids) + 1;
+}
+
+// Se muestra y se oculta el form
+btnAgregarProducto.addEventListener("click", () => {
+
+    formularioProducto.classList.toggle("d-none");
+
+    // Se genera el ID cuando se abre el formulario
+    if (!formularioProducto.classList.contains("d-none")) {
+        inputId.value = generarId();
+    }
+
+});
+
+// Se define vista previa de img
 inputImagen.addEventListener("change", () => {
 
     const archivo = inputImagen.files[0];
 
-    if (!archivo) return;
+    if (archivo) {
 
-    const lector = new FileReader();
+        imgPrevia.src = URL.createObjectURL(archivo);
 
-    lector.onload = function (e) {
-
-        imagenBase64 = e.target.result;
-
-        imgPrevia.src = imagenBase64;
         imgPrevia.classList.remove("d-none");
+
+    }
+
+});
+
+// Se guardan productos
+formulario.addEventListener("submit", (event) => {
+
+    event.preventDefault();
+
+    // Se recuperan los productos existentes
+    const productos = JSON.parse(localStorage.getItem("productos")) || [];
+
+    // Se capturan los valores del formulario
+    const nuevoProducto = {
+
+        id: Number(inputId.value),
+
+        nombre: document.getElementById("nombre-producto").value,
+
+        proveedor: document.getElementById("nombre-proveedor").value,
+
+        categoria: document.getElementById("categoria-producto").value,
+
+        precio: Number(document.getElementById("precio-producto").value),
+
+        stock: Number(document.getElementById("stock-producto").value),
+
+        imagen: ""
+
     };
 
-    lector.readAsDataURL(archivo);
-});
+    // Se convierten la imagen a Base64 para almacenarla
+    const archivo = inputImagen.files[0];
 
-// Mostrar/Ocultar formulario
-const btnAgregarProducto = document.getElementById("btn-agregar-producto");
-const formularioProducto = document.getElementById("formulario-producto");
+    if (archivo) {
 
-btnAgregarProducto.addEventListener("click", () => {
-    formularioProducto.classList.toggle("d-none");
-});
+        const lector = new FileReader();
 
-// Guardar producto
-const form = document.getElementById("form-producto");
+        lector.onload = () => {
 
-if (form) {
-    form.addEventListener("submit", (e) => {
-        e.preventDefault();
+            nuevoProducto.imagen = lector.result;
 
-        const aggProducto = {
-            ID: Date.now(),
-            nombre: document.getElementById("nombre-producto").value,
-            nombreProveedor: document.getElementById("nombre-proveedor").value,
-            categoria: document.getElementById("categoria-producto").value,
-            precio: Number(document.getElementById("precio-producto").value),
-            stock: Number(document.getElementById("stock-producto").value),
-            imagen: imagenBase64
+            guardarProducto(nuevoProducto, productos);
+
         };
 
+        lector.readAsDataURL(archivo);
 
-        const productos =
-            JSON.parse(localStorage.getItem("productos")) || [];
+    } else {
 
-        productos.push(aggProducto);
+        guardarProducto(nuevoProducto, productos);
 
-        localStorage.setItem(
-            "productos",
-            JSON.stringify(productos)
-        );
+    }
 
-        mostrarProductos();
+});
 
-        form.reset();
+// Se almacena en localstorage
+function guardarProducto(nuevoProducto, productos) {
 
-        imgPrevia.src = "";
-        imgPrevia.classList.add("d-none");
+    // Se agregan el nuevo producto al array
+    productos.push(nuevoProducto);
 
-        // Mensaje cuando el formulario se envie con éxito
-        alert("El producto se guardó exitosamente.");
+    // Se actualiza localStorage
+    localStorage.setItem("productos", JSON.stringify(productos));
 
-        
-    });
+    alert("¡Producto guardado exitosamente!");
+
+    // Se actualiza la tabla administrativa
+    mostrarProductos();
+
+    // Se limpia el formulario
+    formulario.reset();
+
+    // Se oculta la vista previa
+    imgPrevia.src = "";
+    imgPrevia.classList.add("d-none");
+
+    // Se prepara el siguiente ID
+    inputId.value = generarId();
+
 }
