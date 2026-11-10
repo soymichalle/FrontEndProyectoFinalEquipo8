@@ -13,6 +13,8 @@ document.getElementById("cuerpo-tabla").addEventListener("click", (e) => {
   // * Recuperamos los productos de localStorage
   let productos = JSON.parse(localStorage.getItem("productos")) || [];
 
+  const productoActual = productos.find(p => p.id === idProducto);
+
   // * Se identifican celdas
   const celdaNombre = fila.querySelector(".campo-nombre");
   const celdaProveedor = fila.querySelector(".campo-proveedor");
@@ -26,7 +28,7 @@ document.getElementById("cuerpo-tabla").addEventListener("click", (e) => {
 
     const valNombre = celdaNombre.textContent.trim();
     const valProveedor = celdaProveedor.textContent.trim();
-    const valPrecio = celdaPrecio.textContent.trim();
+    const valPrecio = productoActual.precio;
     const valStock = celdaStock.textContent.trim();
 
     celdaNombre.innerHTML = `<input type="text" class="form-control form-control-sm input-nombre" value="${valNombre}">`;
