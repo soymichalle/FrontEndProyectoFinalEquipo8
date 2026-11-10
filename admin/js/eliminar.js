@@ -54,6 +54,7 @@ function confirmarEliminar() {
     }
 
     productos.splice(posicion, 1);
+    localStorage.setItem("productos",JSON.stringify(productos));
 
     localStorage.setItem("productos", JSON.stringify(productos));
 
