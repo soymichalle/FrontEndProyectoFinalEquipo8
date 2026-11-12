@@ -1,5 +1,6 @@
 // * Se importan los metodos necesarios
 import { agregarProducto } from "../carrito/js/carrito.js";
+import { renderizarCarritoLateral, abrirCarritoLateral } from "./carritoVistaLateral.js";
 
 // Esperar a que cargue la pagina
 document.addEventListener('DOMContentLoaded', function () {
@@ -113,9 +114,11 @@ document.addEventListener('DOMContentLoaded', function () {
         );
 
         // * Se valida si se encuentra el producto y se llama a la función agregar de carrito.js
-        if (producto) {
-            agregarProducto(producto);
-        }
+       if (producto) {
+           agregarProducto(producto);
+           renderizarCarritoLateral();
+           abrirCarritoLateral();
+       }
 
     });
 });
