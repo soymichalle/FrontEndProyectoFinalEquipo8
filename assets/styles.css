@@ -999,3 +999,13 @@ input {
     height: 22px !important;
     margin: 0 8px 0 0 !important;
 }
+
+/* color en la nav con el efecto cristal */
+.header-flotante-container .navbar.cristal {
+    
+    background: color-mix(in srgb, var(--vino-tinto) 80%, transparent) !important; 
+  
+    backdrop-filter: blur(15px) saturate(120%) !important;
+    -webkit-backdrop-filter: blur(15px) saturate(120%) !important;
+  
+}
