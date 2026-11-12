@@ -1,4 +1,5 @@
 // * Se importan los metodos necesarios
+import { notificarExito, notificarError } from "./alertas.js";
 import { agregarProducto } from "../carrito/js/carrito.js";
 
 // Esperar a que cargue la pagina
@@ -115,6 +116,8 @@ document.addEventListener('DOMContentLoaded', function () {
         // * Se valida si se encuentra el producto y se llama a la función agregar de carrito.js
         if (producto) {
             agregarProducto(producto);
+        } else {
+            notificarError("No se encontró el producto");
         }
 
     });
