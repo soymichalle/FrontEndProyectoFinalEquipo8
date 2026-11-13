@@ -45,3 +45,52 @@
                 submitForm.disabled = true;
             }
         }
+       
+        // Función para recuperar los usuarios guardados en localStorage
+        function obtenerUsuarios() {
+           return JSON.parse(localStorage.getItem('usuarios')) || [];
+        }
+
+       document.getElementById('formulario-registro').addEventListener('submit', function (e) {
+          e.preventDefault();
+
+          const nombre = document.getElementById('registro-nombre').value.trim();
+          const email = document.getElementById('registro-email').value.trim().toLowerCase();
+          const telefono = document.getElementById('registro-telefono').value.trim();
+          const password = document.getElementById('registro-contraseña').value;
+          const errorElement = document.getElementById('passwordError');
+          const submitForm = document.getElementById('btn-registrar');
+
+       // Recuperar lista de usuarios desde localStorage
+          let usuarios = obtenerUsuarios();
+
+       // Validar que el correo no esté repetido
+          const existeCorreo = usuarios.some(usuario => usuario.email === email);
+
+          if (existeCorreo) {
+          errorElement.textContent = 'Este correo electrónico ya está registrado.';
+          errorElement.classList.remove('success');
+          errorElement.classList.add('error');
+          return;
+        }
+
+       // Crear objeto del nuevo usuario
+          const nuevoUsuario = {
+          nombre: nombre,
+          email: email,
+          telefono: telefono,
+          password: password
+        };
+
+       // Guardar en localStorage
+          usuarios.push(nuevoUsuario);
+          localStorage.setItem('usuarios', JSON.stringify(usuarios));
+
+          errorElement.textContent = '¡Usuario registrado con éxito!';
+          errorElement.classList.remove('error');
+          errorElement.classList.add('success');
+
+          this.reset();
+          submitForm.classList.remove('enabled');
+          submitForm.disabled = true;
+       });
