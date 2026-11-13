@@ -7,6 +7,21 @@ const iti = window.intlTelInput(telefonoInput, {
     initialCountry: "co",
     separateDialCode: true
 });
+
+const boton = document.getElementById('boton-ojo');
+const input = document.getElementById('registro-contraseña');
+const icono = boton.querySelector('i');
+
+boton.addEventListener('click', () => {
+    const estaOculta = input.type === 'password';
+    
+    // Cambia el tipo de input
+    input.type = estaOculta ? 'text' : 'password';
+    
+    // Cambia el ícono del ojo
+    icono.classList.toggle('fa-eye');
+    icono.classList.toggle('fa-eye-slash');
+});
         
 FORMULARIO.addEventListener('input', function () {
             validateForm();
