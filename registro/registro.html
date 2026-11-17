@@ -20,6 +20,9 @@
 
     <!-- Estilos propios -->
     <link href="../assets/styles.css" rel="stylesheet">
+    <link href="
+        https://cdn.jsdelivr.net/npm/intl-tel-input@29.5.11/dist/css/intlTelInput.min.css
+        " rel="stylesheet">
 </head>
 
 <body class="d-flex flex-column min-vh-100">
@@ -56,9 +59,15 @@
                     <div class="nav-acciones d-flex align-items-center gap-2">
 
                         <a href="registro/registro.html" class="btn btn-terracota" aria-label="Iniciar sesión">
+
+                        <a href="registro/registro.html" class="btn btn-terracota" aria-label="Iniciar sesión">
                             <i class="fa-solid fa-user"></i>
                             <span class="btn-login-texto">Registrarse</span>
+                            <span class="btn-login-texto">Registrarse</span>
                         </a>
+
+                        <a href="carrito.html" class="btn btn-terracota position-relative"
+                            aria-label="Carrito de compras, 0 productos">
 
                         <a href="carrito.html" class="btn btn-terracota position-relative"
                             aria-label="Carrito de compras, 0 productos">
@@ -116,20 +125,21 @@
                                 </div>
                             </div>
 
-                            <!-- Contraseña mayor a 8 caracteres -->
-                            <div class="mb-3">
-                                <label for="registro-contraseña" class="form-label">Contraseña</label>
-                                <input type="password" class="form-control" id="registro-contraseña" placeholder="********" required
-                                    minlength="8">
-                            </div>
+                        <!-- Contraseña mayor a 8 caracteres -->
+                        <div class="input-group mb-3">
+                            <label for="registro-contraseña" class="form-label">Contraseña</label>
+                            <input type="password" class="form-control" id="registro-contraseña" required placeholder="********" minlength="8">
+                            <button class="btn btn-light" type="button" id="boton-ojo">
+                                <i class="fa-solid fa-eye"></i>
+                            </button>
+                        </div>
 
-                            <!-- Confirmar Contraseña -->
-                            <div class="mb-4">
-                                <label for="registro-confirmar-contraseña" class="form-label">Confirmar
-                                    contraseña</label>
-                                <input type="password" class="form-control" id="registro-confirmar-contraseña" placeholder="********" required
-                                    minlength="8">
-                            </div>
+                        <!-- Confirmar Contraseña -->
+                        <div class="mb-4">
+                            <label for="registro-confirmar-contraseña" class="form-label">Confirmar contraseña</label>
+                            <input type="password" class="form-control" id="registro-confirmar-contraseña" placeholder="********" required minlength="8">
+                            <span id="passwordError" class="error"></span> <!-- Para error -->
+                        </div> 
 
                             <!-- Botón de Registro -->
                             <button type="submit" id="btn-registrar" class="btn btn-terracota w-100 py-2">
@@ -419,6 +429,11 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="
+    https://cdn.jsdelivr.net/npm/intl-tel-input@29.5.11/dist/js/intlTelInput.min.js
+    "></script>
+    <script src="validaciones.js"></script>
+    <script src="objetojson.js"></script>
 
 </body>
 

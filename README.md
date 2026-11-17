@@ -3,7 +3,9 @@ Repositorio del FrontEnd para el Proyecto Final del Equipo 8
 
 # Desplegado en:
 
-https://boronvino-frontend.netlify.app
+[Demo - Inicio](https://soymichalle.github.io/FrontEndProyectoFinalEquipo8/index.html)
+
+[Demo - Admin](https://soymichalle.github.io/FrontEndProyectoFinalEquipo8/admin/index.html)
 
 ## Integrantes:
 * Kevin Duvan Garzon Florez
