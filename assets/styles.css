@@ -6,7 +6,7 @@
 
 @font-face {
   font-family: 'Eugusto';
-  src: url('./fonts/Eugusto%20Free%20Font.otf') format('opentype');
+  src: url('fonts/Eugusto%20Free%20Font.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
 }
@@ -302,20 +302,32 @@ input {
   color: white;
 }
 
-/* ESTILOS PARA EL CARRUSEL (ANDRES)*/
+/* ESTILOS PARA EL CARRUSEL (ANDRES) SOBRE NOSOTROSS*/
 
 .carousel-item img {
   object-fit: contain;
   margin: 0 auto;
-  border-radius: 20px;
+  border-radius: 15px;
   box-shadow:
-    0 20px 40px rgba(0, 0, 0, 0.7),
-    0 0 75px rgba(0, 0, 0, 0.5);
+    0 10px 30px rgba(104, 69, 69, 0.7),
+    0 0 50px rgba(112, 71, 71, 0.5);
   transition: transform 0.3s ease;
 }
 
 .carousel-item img:hover {
-  transform: scale(1.02);
+  transform: scale(1.05);
+} 
+
+#nuestros-vinos {
+  background-color: rgba(51, 21, 16, 0.60);
+  width: 80%;
+  margin: 30px auto;
+  border-radius: 20px;
+  padding: 20px 0;
+  border: 1px solid rgba(239, 210, 175, 0.35);
+  border-radius: 24px;
+  backdrop-filter: blur(30px) saturate(200%);
+  -webkit-backdrop-filter: blur(30px) saturate(150%);
 }
 
 /* Indicador de foco accesible para enlaces y botones del Header/Footer */
@@ -699,7 +711,7 @@ input {
   min-height: 60vh;
   background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
     url('imagenes/images-fondos/fondobanner.jpg') center/cover no-repeat;
-    url('/assets/imagenes/images-fondos/fondobanner.jpg') center/cover no-repeat;
+    /*url('/assets/imagenes/images-fondos/fondobanner.jpg') center/cover no-repeat;*/
   padding-top: 80px;
   padding-bottom: 80px;
 }
