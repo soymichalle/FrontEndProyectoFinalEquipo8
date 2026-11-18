@@ -1,8 +1,9 @@
-// * Se importan los metodos necesarios
+// Se importan los métodos necesarios
 import { notificarExito, notificarError } from "./alertas.js";
 import { agregarProducto } from "../carrito/js/carrito.js";
+import { renderizarCarritoLateral, abrirCarritoLateral } from "./carritoVistaLateral.js";
 
-// Esperar a que cargue la pagina
+// Esperar a que cargue la página
 document.addEventListener('DOMContentLoaded', function () {
 
     const contenedor = document.getElementById('catalogo-productos');
@@ -28,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const texto = inputBuscar ? inputBuscar.value.toLowerCase().trim() : '';
         const orden = selectOrdenar ? selectOrdenar.value : 'recientes';
 
-        // Filtrar por nombre o categoria
+        // Filtrar por nombre o categoría
         if (texto !== '') {
             lista = lista.filter(function (vino) {
                 const nombreOk = vino.nombre && vino.nombre.toLowerCase().includes(texto);
@@ -50,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function () {
             lista.reverse();
         }
 
-        // Limpiar solo los productos dinamicos agregados previamente por JS
+        // Limpiar solo los productos dinámicos agregados previamente por JS
         const dinamicosPrevios = contenedor.querySelectorAll('.producto-dinamico');
         dinamicosPrevios.forEach(function (card) {
             card.remove();
@@ -96,31 +97,24 @@ document.addEventListener('DOMContentLoaded', function () {
     // Ejecutar al cargar la vista
     mostrarProductos();
 
-    // * Evento para agregar productos al carrito
-    contenedor.addEventListener('click', (event) => {
+    // Evento para agregar productos al carrito
+    if (contenedor) {
+        contenedor.addEventListener('click', (event) => {
+            const boton = event.target.closest('[data-id]');
+            if (!boton) return;
 
-        // * Se captura data del boton
-        const boton = event.target.closest('[data-id]');
+            const id = boton.dataset.id;
+            const producto = cargarProductos().find(
+                vino => String(vino.id) === id
+            );
 
-        // * Si no hay boton retorna vacio
-        if (!boton) return;
-
-        // * Se captura del boton el id del producto
-        const id = boton.dataset.id;
-
-        // * Encuentra producto con el id capturado
-        const producto = cargarProductos().find(
-            vino => String(vino.id) === id
-        );
-
-        // * Se valida si se encuentra el producto y se llama a la función agregar de carrito.js
-        if (producto) {
-            agregarProducto(producto);
-            renderizarCarritoLateral();
-            abrirCarritoLateral();
-        } else {
-            notificarError("No se encontró el producto");
-        }
-
-    });
+            if (producto) {
+                agregarProducto(producto);
+                renderizarCarritoLateral();
+                abrirCarritoLateral();
+            } else {
+                notificarError("No se encontró el producto");
+            }
+        });
+    }
 });

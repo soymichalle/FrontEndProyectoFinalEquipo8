@@ -1,4 +1,3 @@
-// Importamos las funciones del carrito desde carrito.js
 import {
     obtenerCarrito,
     guardarCarrito,
@@ -6,57 +5,61 @@ import {
     disminuirCantidad
 } from "../carrito/js/carrito.js";
 
-// Función para formatear precios en pesos colombianos
+// Calcula si estamos en una subcarpeta (/registro/, /carrito/, /admin/)
+function obtenerRutaBase() {
+    const ruta = window.location.pathname;
+    if (ruta.includes("/registro/") || ruta.includes("/carrito/") || ruta.includes("/admin/")) {
+        return "../";
+    }
+    return "./";
+}
+
+// Formatea precios en pesos colombianos
 function formatearPrecio(precio) {
     return "$" + Number(precio).toLocaleString("es-CO");
 }
 
-// Función para calcular el total general del carrito
+// Calcula el total del carrito
 function calcularTotal(carrito) {
     let total = 0;
-    carrito.forEach(function (producto) {
+    carrito.forEach(producto => {
         total += Number(producto.precio) * Number(producto.cantidad);
     });
     return total;
 }
 
-// Función para eliminar un producto del carrito por su id
+// Elimina un producto del carrito por su id
 function eliminarDelCarrito(idProducto) {
     const carrito = obtenerCarrito();
-    const nuevoCarrito = carrito.filter(function (producto) {
-        return String(producto.id) !== String(idProducto);
-    });
-    guardarCarrito(nuevoCarrito);
+    const carritoActualizado = carrito.filter(producto => String(producto.id) !== String(idProducto));
+    guardarCarrito(carritoActualizado);
 }
 
-// Función para actualizar el contador del carrito en el navbar
+// Actualiza el numerito del carrito en la barra de navegación
 export function actualizarContadorNavbar() {
     const carrito = obtenerCarrito();
     let totalProductos = 0;
 
-    carrito.forEach(function (producto) {
+    carrito.forEach(producto => {
         totalProductos += Number(producto.cantidad);
     });
 
     const badges = document.querySelectorAll(".carrito-badge");
-    badges.forEach(function (badge) {
+    badges.forEach(badge => {
         badge.textContent = totalProductos;
     });
 }
 
-// Función para crear la estructura del panel lateral (Bootstrap Offcanvas) en el HTML
+// Crea el panel lateral de Bootstrap (Offcanvas)
 function crearOffcanvasCarrito() {
-    // Si ya existe en la página, no lo volvemos a crear
     if (document.getElementById("offcanvasCarrito")) return;
 
-    // Rutas desde la raíz para que funcionen desde cualquier página (incluso /registro/)
-    const rutaVerCarrito = "/carrito/carrito.html";
-    const rutaCatalogo = "/catalogo.html";
+    const base = obtenerRutaBase();
+    const rutaVerCarrito = `${base}carrito/carrito.html`;
+    const rutaCatalogo = `${base}catalogo.html`;
 
     const panelHTML = `
-        <div class="offcanvas offcanvas-end text-white" tabindex="-1" id="offcanvasCarrito" aria-labelledby="tituloOffcanvasCarrito" style="background-color: #1a1114; width: 380px; z-index: 2000;">
-            
-            <!-- Encabezado del panel -->
+        <div class="offcanvas offcanvas-end text-white" tabindex="-1" id="offcanvasCarrito" aria-labelledby="tituloOffcanvasCarrito" style="background-color: #1a1114; width: 380px; z-index: 999999;">
             <div class="offcanvas-header border-bottom border-secondary">
                 <h5 class="offcanvas-title fw-bold" id="tituloOffcanvasCarrito">
                     <i class="fa-solid fa-cart-shopping me-2"></i>Tu carrito
@@ -64,7 +67,6 @@ function crearOffcanvasCarrito() {
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
             </div>
 
-            <!-- Bloque superior con total y botón Ver carrito -->
             <div id="bloque-resumen-lateral" class="p-3 border-bottom border-secondary">
                 <div class="d-flex justify-content-between align-items-center mb-2">
                     <span class="text-white-50">Total:</span>
@@ -75,17 +77,22 @@ function crearOffcanvasCarrito() {
                 </a>
             </div>
 
-            <!-- Contenedor donde se pintan los productos o el mensaje de vacío -->
-            <div class="offcanvas-body" id="cuerpo-carrito-lateral" data-ruta-catalogo="${rutaCatalogo}">
-            </div>
-
+            <div class="offcanvas-body" id="cuerpo-carrito-lateral"></div>
         </div>
     `;
 
     document.body.insertAdjacentHTML("beforeend", panelHTML);
+    if (!document.getElementById("estilo-offcanvas-carrito")) {
+        document.head.insertAdjacentHTML("beforeend", `
+            <style id="estilo-offcanvas-carrito">
+                .offcanvas-backdrop { z-index: 999998 !important; }
+                #offcanvasCarrito { z-index: 999999 !important; }
+            </style>
+        `);
+    }
 }
 
-// Función principal para pintar los productos dentro del carrito lateral
+// Dibuja los productos dentro del carrito lateral
 export function renderizarCarritoLateral() {
     crearOffcanvasCarrito();
     actualizarContadorNavbar();
@@ -97,11 +104,11 @@ export function renderizarCarritoLateral() {
     if (!cuerpo) return;
 
     const carrito = obtenerCarrito();
-    const rutaCatalogo = cuerpo.dataset.rutaCatalogo || "/catalogo.html";
+    const base = obtenerRutaBase();
+    const rutaCatalogo = `${base}catalogo.html`;
 
-    // Validar si el carrito está vacío
     if (carrito.length === 0) {
-        if (bloqueResumen) bloqueResumen.classList.add("d-none");
+        bloqueResumen.classList.add("d-none");
 
         cuerpo.innerHTML = `
             <div class="text-center py-5">
@@ -118,18 +125,18 @@ export function renderizarCarritoLateral() {
         return;
     }
 
-    // Si hay productos, mostramos el resumen superior y actualizamos el total
-    if (bloqueResumen) bloqueResumen.classList.remove("d-none");
-    if (textoTotal) {
-        textoTotal.textContent = formatearPrecio(calcularTotal(carrito));
-    }
-
-    // Limpiamos y recorremos los productos del carrito
+    bloqueResumen.classList.remove("d-none");
+    textoTotal.textContent = formatearPrecio(calcularTotal(carrito));
     cuerpo.innerHTML = "";
 
-    carrito.forEach(function (vino) {
+    carrito.forEach(vino => {
         const subtotal = Number(vino.precio) * Number(vino.cantidad);
-        const imagen = vino.imagen || "/assets/imagenes/default.jpg";
+        let imagen = vino.imagen || `${base}assets/imagenes/default.jpg`;
+
+        if (base === "../" && imagen.startsWith("assets/")) {
+            imagen = `../${imagen}`;
+        }
+
         const descripcion = vino.descripcion || `${vino.categoria || "Vino artesanal"} - ${vino.proveedor || "BoronVino"}`;
 
         const tarjeta = document.createElement("div");
@@ -167,24 +174,22 @@ export function renderizarCarritoLateral() {
     });
 }
 
-// Función para abrir el panel lateral desde cualquier evento
+// Abre el panel lateral con Bootstrap Offcanvas
 export function abrirCarritoLateral() {
     renderizarCarritoLateral();
     const offcanvasElemento = document.getElementById("offcanvasCarrito");
     if (offcanvasElemento) {
-        const bsOffcanvas = bootstrap.Offcanvas.getOrCreateInstance(offcanvasElemento);
-        bsOffcanvas.show();
+        const panelBootstrap = bootstrap.Offcanvas.getOrCreateInstance(offcanvasElemento);
+        panelBootstrap.show();
     }
 }
 
-// Esperar a que cargue el DOM para activar los eventos
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
     crearOffcanvasCarrito();
     renderizarCarritoLateral();
 
-    // Delegación de eventos para abrir el carrito y manejar los botones internos
-    document.addEventListener("click", function (event) {
-        // 1. Clic en el botón del carrito del navbar
+    document.addEventListener("click", (event) => {
+        // Abrir panel lateral al dar clic en el carrito del header
         const btnCarritoNav = event.target.closest(".btn-carrito");
         if (btnCarritoNav) {
             event.preventDefault();
@@ -192,14 +197,12 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        // 2. Clic en botón aumentar (+)
+        // Sumar cantidad (+)
         const btnSumar = event.target.closest(".btn-sumar-item");
         if (btnSumar) {
             const id = btnSumar.dataset.id;
             const carrito = obtenerCarrito();
-            const producto = carrito.find(function (item) {
-                return String(item.id) === String(id);
-            });
+            const producto = carrito.find(item => String(item.id) === String(id));
 
             if (producto) {
                 if (!producto.stock) {
@@ -213,14 +216,12 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        // 3. Clic en botón disminuir (-)
+        // Restar cantidad (-)
         const btnRestar = event.target.closest(".btn-restar-item");
         if (btnRestar) {
             const id = btnRestar.dataset.id;
             const carrito = obtenerCarrito();
-            const producto = carrito.find(function (item) {
-                return String(item.id) === String(id);
-            });
+            const producto = carrito.find(item => String(item.id) === String(id));
 
             if (producto && disminuirCantidad(producto)) {
                 guardarCarrito(carrito);
@@ -229,7 +230,7 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        // 4. Clic en botón eliminar producto
+        // Eliminar producto
         const btnEliminar = event.target.closest(".btn-eliminar-item");
         if (btnEliminar) {
             const id = btnEliminar.dataset.id;
