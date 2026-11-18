@@ -1,4 +1,9 @@
-// Esperar a que cargue la pagina
+// Se importan los métodos necesarios
+import { notificarExito, notificarError } from "./alertas.js";
+import { agregarProducto } from "../carrito/js/carrito.js";
+import { renderizarCarritoLateral, abrirCarritoLateral } from "./carritoVistaLateral.js";
+
+// Esperar a que cargue la página
 document.addEventListener('DOMContentLoaded', function () {
 
     const contenedor = document.getElementById('catalogo-productos');
@@ -24,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const texto = inputBuscar ? inputBuscar.value.toLowerCase().trim() : '';
         const orden = selectOrdenar ? selectOrdenar.value : 'recientes';
 
-        // Filtrar por nombre o categoria
+        // Filtrar por nombre o categoría
         if (texto !== '') {
             lista = lista.filter(function (vino) {
                 const nombreOk = vino.nombre && vino.nombre.toLowerCase().includes(texto);
@@ -46,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function () {
             lista.reverse();
         }
 
-        // Limpiar solo los productos dinamicos agregados previamente por JS
+        // Limpiar solo los productos dinámicos agregados previamente por JS
         const dinamicosPrevios = contenedor.querySelectorAll('.producto-dinamico');
         dinamicosPrevios.forEach(function (card) {
             card.remove();
@@ -66,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         <p class="card-text small text-white-50">Proveedor: ${vino.proveedor}</p>
                         <div class="mt-auto d-flex justify-content-between align-items-center pt-2">
                             <span class="fw-bold fs-5">$${Number(vino.precio).toLocaleString('es-CO')}</span>
-                            <button class="btn btn-terracota btn-sm">Agregar</button>
+                            <button class="btn btn-terracota btn-sm" data-id="${vino.id}">Agregar al carrito</button>
                         </div>
                     </div>
                 </div>
@@ -91,4 +96,25 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Ejecutar al cargar la vista
     mostrarProductos();
+
+    // Evento para agregar productos al carrito
+    if (contenedor) {
+        contenedor.addEventListener('click', (event) => {
+            const boton = event.target.closest('[data-id]');
+            if (!boton) return;
+
+            const id = boton.dataset.id;
+            const producto = cargarProductos().find(
+                vino => String(vino.id) === id
+            );
+
+            if (producto) {
+                agregarProducto(producto);
+                renderizarCarritoLateral();
+                abrirCarritoLateral();
+            } else {
+                notificarError("No se encontró el producto");
+            }
+        });
+    }
 });
