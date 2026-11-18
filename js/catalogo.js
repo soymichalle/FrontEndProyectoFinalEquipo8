@@ -116,6 +116,8 @@ document.addEventListener('DOMContentLoaded', function () {
         // * Se valida si se encuentra el producto y se llama a la función agregar de carrito.js
         if (producto) {
             agregarProducto(producto);
+            renderizarCarritoLateral();
+            abrirCarritoLateral();
         } else {
             notificarError("No se encontró el producto");
         }

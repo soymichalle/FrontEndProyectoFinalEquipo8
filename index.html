@@ -63,7 +63,7 @@
                             <span class="btn-login-texto">Registrarse</span>
                         </a>
 
-                        <a href="carrito.html" class="btn btn-terracota position-relative"
+                        <a href="carrito/carrito.html" class="btn btn-terracota position-relative btn-carrito"
                             aria-label="Carrito de compras, 0 productos">
                             <i class="fa-solid fa-cart-shopping"></i>
                             <span class="carrito-badge">0</span>
@@ -78,35 +78,7 @@
     <main class="main">
 
         <!-- Para el aside -->
-        <section>
-            <aside id="asideCarrito">
-
-                <!-- Titulo del aside -->
-                <h3 id="tituloAside">Titulo de Carrito</h3>
-
-                <!-- Lista del productos en el carrito -->
-                <ul id="listaProductos-aside">
-                    <li><a href=""></a></li>
-                </ul>
-
-                <!-- Lista de nombre de producto precio para subtotal -->
-                <ul id="listSubtotal">
-                    <li><a href=""></a></li>
-                </ul>
-
-                <!-- Para total a pagar -->
-                <h4 id="totalPagar">
-                    Total a pagar
-                </h4>
-
-                <!-- Boton finalizar compra -->
-                <button id="btn-finalizarCompra-aside">
-                    <a href="">
-                        Finalizar Compra
-                    </a>
-                </button>
-            </aside>
-        </section>
+        
 
         <!-- BANNER -->
         <section class="bannerValle d-flex align-items-center justify-content-center text-center">
@@ -556,80 +528,59 @@
     </main>
 
     <!-- FOOTER -->
-    <footer class="footer-boronvino cristal mt-5 py-5">
+    <footer class="footer-boronvino cristal mt-4 py-3">
         <div class="container">
-            <div class="row g-4 align-items-start">
+            <div class="row g-3 align-items-center text-center text-md-start">
 
-                <!-- Columna 1: Marca y descripción -->
+                <!-- Columna 1: Marca -->
                 <div class="col-12 col-md-4">
-                    <h3 class="fw-bold mb-3 footer-brand">BORONVINO</h3>
-                    <p class="footer-text">
-                        Vino artesanal elaborado con tradición, dedicación y apoyo a las familias campesinas y pequeños
-                        productores del Valle del Cauca.
+                    <h5 class="fw-bold mb-1 footer-brand">BORONVINO</h5>
+                    <p class="small mb-0 footer-text">
+                        Vino artesanal del Valle del Cauca · Tradición y apoyo a productores locales.
                     </p>
                 </div>
 
-                <!-- Columna 2: Enlaces de navegación -->
-                <div class="col-12 col-md-4 text-md-center">
-                    <h5 class="fw-bold mb-3 footer-subtitle">Navegación</h5>
-                    <ul class="list-unstyled footer-menu">
-                        <li class="mb-2"><a href="index.html" class="footer-link">Inicio</a></li>
-                        <li class="mb-2"><a href="contactanos.html" class="footer-link">Contactenos</a></li>
-                        <li class="mb-2"><a href="sobre-nosotros.html" class="footer-link">Acerca de nosotros</a></li>
-                        <li class="mb-2"><a href="catalogo.html" class="footer-link">Catalogo</a></li>
-                        <li class="mb-2"><a href="#login" class="footer-link">Login</a></li>
-                        <li cass="mb-2"><a href="#Carrito" class="footer-link">Carrito de compras</a></li>
+                <!-- Columna 2: Navegación -->
+                <div class="col-12 col-md-4 text-center">
+                    <ul class="list-inline mb-0 small footer-menu">
+                        <li class="list-inline-item mx-2"><a href="index.html" class="footer-link">Inicio</a></li>
+                        <li class="list-inline-item mx-2"><a href="catalogo.html" class="footer-link">Catálogo</a></li>
+                        <li class="list-inline-item mx-2"><a href="sobre-nosotros.html" class="footer-link">Nosotros</a></li>
+                        <li class="list-inline-item mx-2"><a href="contactanos.html" class="footer-link">Contáctenos</a></li>
+                        <li class="list-inline-item mx-2"><a href="registro/registro.html" class="footer-link">Registro</a></li>
                     </ul>
                 </div>
 
-                <!-- Columna 3: Información de contacto -->
+                <!-- Columna 3: Contacto y redes -->
                 <div class="col-12 col-md-4 text-md-end">
-                    <h5 class="fw-bold mb-3 footer-subtitle">Contacto</h5>
-                    <p class="mb-1 footer-text">
-                        <i class="fa-solid fa-location-dot me-2"></i>Valle del Cauca, Colombia
+                    <p class="small mb-1 footer-text">
+                        <i class="fa-solid fa-envelope me-1"></i>info@boronvino.com
                     </p>
-                    <p class="mb-2 footer-text" target="_blank">
-                        <i class="fa-solid fa-envelope me-2"></i>info@boronvino.com
-                    </p>
-
-                    <ul class="list-unstyled footer-social mt-3 mb-3">
-                        <li class="mb-2">
-                            <a target="_blank">
-                                <i class="fa-brands fa-instagram me-2"></i>Instagram
-                            </a>
-                        </li>
-                        <li class="mb-2">
-                            <a>
-                                <i class="fa-brands fa-facebook-f me-2"></i>Facebook
-                            </a>
-                        </li>
-                        <li class="mb-2">
-                            <a>
-                                <i class="fa-brands fa-tiktok me-2"></i>TikTok
-                            </a>
-                        </li>
-                        <li class="mb-2">
-                            <a>
-                                <i class="fa-brands fa-whatsapp me-2"></i>WhatsApp
-                            </a>
-                        </li>
-                    </ul>
-
-                    <a href="catalogo.html" class="btn btn-sm btn-terracota mt-2">Visitar Tienda</a>
+                    <div class="d-flex justify-content-center justify-content-md-end align-items-center gap-3">
+                        <div class="footer-social">
+                            <a href="#" target="_blank" class="footer-link me-2" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#" target="_blank" class="footer-link me-2" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="#" target="_blank" class="footer-link me-2" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                            <a href="#" target="_blank" class="footer-link" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                        </div>
+                        <a href="catalogo.html" class="btn btn-sm btn-terracota">Visitar Tienda</a>
+                    </div>
                 </div>
+
             </div>
 
-            <hr class="my-4 footer-divider">
+            <hr class="my-2 footer-divider">
 
             <div class="text-center">
-                <p class="m-0 footer-copy">&copy; 2026 BoronVino. Todos los derechos reservados.</p>
+                <p class="m-0 small footer-copy">&copy; 2026 BoronVino · Valle del Cauca, Colombia · Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
 
     <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/lista-productores.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+     <script src="js/lista-productores.js"></script>
+     <script type="module" src="js/carritoVistaLateral.js"></script>
 
 </body>
 
