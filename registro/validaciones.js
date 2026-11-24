@@ -1,0 +1,153 @@
+// Hacemos llamada del ID del form de registro
+const FORMULARIO = document.getElementById('formulario-registro');
+const telefonoInput = document.getElementById('registro-telefono');
+
+// Para indicativo pais
+const iti = window.intlTelInput(telefonoInput, {
+    initialCountry: "co",
+    separateDialCode: true
+});
+
+const boton = document.getElementById('boton-ojo');
+const input = document.getElementById('registro-contraseña');
+const icono = boton.querySelector('i');
+
+boton.addEventListener('click', () => {
+    const estaOculta = input.type === 'password';
+    
+    // Cambia el tipo de input
+    input.type = estaOculta ? 'text' : 'password';
+    
+    // Cambia el ícono del ojo
+    icono.classList.toggle('fa-eye');
+    icono.classList.toggle('fa-eye-slash');
+});
+        
+FORMULARIO.addEventListener('input', function () {
+            validateForm();
+        });
+
+        // Funcion para validaciones del formulario
+        function validateForm() {
+            const username = document.getElementById('registro-nombre').value.trim();
+            const emailForm = document.getElementById('registro-email').value.trim();
+            const telefonoForm = document.getElementById('registro-telefono').value.trim();
+            const password = document.getElementById('registro-contraseña').value;
+            const confirmPassword = document.getElementById('registro-confirmar-contraseña').value;
+            const submitForm = document.getElementById('btn-registrar');
+            const errorElement = document.getElementById('passwordError');
+
+            let isValid = true;
+
+            if (password === '' && confirmPassword === ''){
+                errorElement.textContent = '';
+                errorElement.classList.remove('error', 'success');
+            }   else if (password.length < 8){
+                errorElement.textContent = 'La contraseña debe tener más de 8 carácteres.';
+                errorElement.classList.remove('success');
+                errorElement.classList.add('error');
+                isValid = false;
+            }   else if (password !== confirmPassword) {
+                errorElement.textContent = 'Las contraseñas no coinciden';
+                errorElement.classList.remove('success');
+                errorElement.classList.add('error');
+                isValid = false;
+            } else {
+                errorElement.textContent = 'Las constraseñas coinciden';
+                errorElement.classList.remove('error');
+                errorElement.classList.add('success');
+            }
+
+            if (!username || !password || !confirmPassword || !emailForm || !telefonoForm) {
+                isValid = false;
+            }
+
+            // Validacion de correo siguiendo el formato nombre@dominio.com
+            const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailValid.test(emailForm)) {
+                isValid = false;
+            }
+
+            // Verificacion de número === 10 | reemplazo de caracteres por espacios
+            const soloNumeros = telefonoForm.replace(/\D/g, '');
+            if (soloNumeros.length !== 10) {
+                isValid = false;
+            }
+
+            // Activacion/desactivacion de boton "Registrarme"
+            if (isValid) {
+                submitForm.classList.add('enabled');
+                submitForm.disabled = false;
+            } else {
+                submitForm.classList.remove('enabled');
+                submitForm.disabled = true;
+            }
+        }
+
+FORMULARIO.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" && event.target.tagName !== "TEXTAREA") {
+        event.preventDefault();
+
+        const campos = Array.from(
+            FORMULARIO.querySelectorAll(
+                "input:not([hidden]), select, textarea"
+            )
+        );
+
+        const indice = campos.indexOf(event.target);
+
+        if (indice >= 0 && indice < campos.length - 1) {
+            campos[indice + 1].focus();
+        }
+    }
+});
+        
+       
+        // Función para recuperar los usuarios guardados en localStorage
+        function obtenerUsuarios() {
+           return JSON.parse(localStorage.getItem('usuarios')) || [];
+        }
+
+       document.getElementById('formulario-registro').addEventListener('submit', function (e) {
+          e.preventDefault();
+
+          const nombre = document.getElementById('registro-nombre').value.trim();
+          const email = document.getElementById('registro-email').value.trim().toLowerCase();
+          const telefono = document.getElementById('registro-telefono').value.trim();
+          const password = document.getElementById('registro-contraseña').value;
+          const errorElement = document.getElementById('passwordError');
+          const submitForm = document.getElementById('btn-registrar');
+
+       // Recuperar lista de usuarios desde localStorage
+          let usuarios = obtenerUsuarios();
+
+       // Validar que el correo no esté repetido
+          const existeCorreo = usuarios.some(usuario => usuario.email === email);
+
+          if (existeCorreo) {
+          errorElement.textContent = 'Este correo electrónico ya está registrado.';
+          errorElement.classList.remove('success');
+          errorElement.classList.add('error');
+          return;
+        }
+
+       // Crear objeto del nuevo usuario
+          const nuevoUsuario = {
+          nombre: nombre,
+          email: email,
+          telefono: telefono,
+          password: password
+        };
+
+       // Guardar en localStorage
+          usuarios.push(nuevoUsuario);
+          localStorage.setItem('usuarios', JSON.stringify(usuarios));
+
+          errorElement.textContent = '¡Usuario registrado con éxito!';
+          errorElement.classList.remove('error');
+          errorElement.classList.add('success');
+
+          this.reset();
+          submitForm.classList.remove('enabled');
+          submitForm.disabled = true;
+       });
