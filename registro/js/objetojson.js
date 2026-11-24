@@ -9,20 +9,6 @@ botonRegistrar.addEventListener("click", function(evento) {
     const contrasena = document.getElementById("registro-contraseña").value;
     const confirmarContraseña = document.getElementById("registro-confirmar-contraseña").value;
 
-   if (!nombreCompleto || !email || !telefono || !contrasena || !confirmarContraseña) {
-    const errorElement = document.getElementById("passwordError");
-    if (errorElement) {
-        errorElement.textContent = "Llena todos los campos antes de registrar.";
-        errorElement.classList.remove("success");
-        errorElement.classList.add("error");
-    }
-    return;
-}
-
-    if (contrasena.length < 8 || contrasena !== confirmarContraseña) {
-        return;
-    }
-
     const nuevoUsuario = {
         nombre: nombreCompleto,
         telefono: telefono,
