@@ -304,6 +304,11 @@ input {
 
 /* ESTILOS PARA EL CARRUSEL (ANDRES) SOBRE NOSOTROSS*/
 
+.categ-vino {
+  height: 90vh;
+  width: 67vw;
+}
+
 .carousel-item img {
   object-fit: contain;
   margin: 0 auto;
@@ -953,3 +958,4 @@ input {
   rotate: y 180deg;
   padding: 0.5rem;
 }
+
