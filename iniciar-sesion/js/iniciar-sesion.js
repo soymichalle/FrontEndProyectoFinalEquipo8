@@ -1,11 +1,12 @@
 
 // * Se importan las librerias requeridas
-import {notificarError, notificarExito} from "../../js/alertas.js";
+import { notificarError, notificarExito } from "../../js/alertas.js";
 
 // * Se definen variables
 const email = document.querySelector("#login-email");
 const contrasena = document.querySelector("#login-contraseña");
 const btnIniciarSesion = document.querySelector("#btn-login");
+const recordar = document.querySelector("#recordarme");
 
 // ! Pruebas: Usuario hardcodeado
 const nuevoUsuario = {
@@ -17,6 +18,14 @@ const nuevoUsuario = {
 
 const btnOjo = document.getElementById('boton-ojo');
 const icono = btnOjo.querySelector('i');
+
+// * Se recupera el correo guardado
+const correoGuardado = localStorage.getItem("correoRecordado");
+
+if (correoGuardado) {
+    email.value = correoGuardado;
+    recordar.checked = true;
+}
 
 // * Evento para mostrar u ocultar contraseña
 btnOjo.addEventListener('click', () => {
@@ -56,6 +65,14 @@ btnIniciarSesion.addEventListener("click", function (e) {
         email.value.trim().toLowerCase() === nuevoUsuario.email &&
         contrasena.value === nuevoUsuario.password
     ) {
+        
+        // * Se guarda o elimina el correo según la preferencia
+        if (recordar.checked) {
+            localStorage.setItem("correoRecordado", email.value.trim());
+        } else {
+            localStorage.removeItem("correoRecordado");
+        }
+
         notificarExito("¡Inicio de sesión exitoso!");
 
         setTimeout(() => {
