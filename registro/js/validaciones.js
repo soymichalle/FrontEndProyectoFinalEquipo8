@@ -1,5 +1,5 @@
 // Importamos alertas.js
-import { notificarExito, notificarError} from '../js/alertas.js';
+import { notificarExito, notificarError} from "../../js/alertas.js";
 
 // Hacemos llamada del ID del form de registro
 const FORMULARIO = document.getElementById('formulario-registro');
@@ -17,7 +17,10 @@ const iconoOjo = botonOjo.querySelector('i');
 // Para indicativo pais
 const iti = window.intlTelInput(telefonoInput, {
     initialCountry: "co",
-    separateDialCode: true
+    separateDialCode: true,
+    loadUtils: () => import(
+        "https://cdn.jsdelivr.net/npm/intl-tel-input@29.5.11/dist/js/utils.js"
+    )
 });
 
 botonOjo.addEventListener('click', () => {
@@ -103,7 +106,7 @@ function obtenerUsuarios() {
     }
 }
 
-FORMULARIO.addEventListener('submit', (e) => {
+FORMULARIO.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     if (!validateForm()) {
