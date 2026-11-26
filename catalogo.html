@@ -57,19 +57,27 @@
                     </ul>
 
                     <div class="nav-acciones d-flex align-items-center gap-2">
+                       <span id="navSaludo" class="text-white small fw-semibold d-none"></span>
 
-                        <a href="registro/registro.html" class="btn btn-terracota" aria-label="Iniciar sesión">
-                            <i class="fa-solid fa-user"></i>
-                            <span class="btn-login-texto">Registrarse</span>
+                       <a id="btnLoginNav" href="iniciar-sesion/iniciar-sesion.html" class="btn btn-terracota" aria-label="Iniciar sesión">
+                           <i class="fa-solid fa-user"></i>
+                           <span class="btn-login-texto">Iniciar sesión</span>
+                       </a>
+
+                       <a id="btnRegistroNav" href="registro/registro.html" class="btn btn-outline-light btn-sm">
+                            Registrarse
                         </a>
 
-                        <a href="carrito/carrito.html" class="btn btn-terracota position-relative btn-carrito"
-                          aria-label="Carrito de compras, 0 productos">
-                          <i class="fa-solid fa-cart-shopping"></i>
-                          <span class="carrito-badge">0</span>
-                       </a>
-                    </div>
+                       <button id="btnLogoutNav" type="button" class="btn btn-outline-light btn-sm d-none">
+                           Cerrar sesión
+                       </button>
 
+                       <a href="carrito/carrito.html" class="btn btn-terracota position-relative btn-carrito"
+                           aria-label="Carrito de compras, 0 productos">
+                           <i class="fa-solid fa-cart-shopping"></i>
+                           <span class="carrito-`">0</span>
+                       </a>
+                  </div>
                 </div>
             </div>
         </nav>
@@ -204,6 +212,7 @@
 
     <!-- SWEET ALERT JIJIJIJI -->
      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+     <script type="module" src="./js/navbarSesion.js"></script>
 
   </body>
 

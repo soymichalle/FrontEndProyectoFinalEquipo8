@@ -99,7 +99,7 @@ input {
 }
 
 .texto-crema {
-  color: var(--crema-suave);
+  color: var(--crema-suave)!important;
 }
 
 .texto-blanco {
@@ -300,8 +300,19 @@ input {
   background-color: #a92230;
   border: 1px solid #a92230;
   color: white;
+  border-radius: 20px;
+  padding: 6px 18px;
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
+.btn-eliminar:hover {
+  background-color: var(--crema-suave);
+  color: #a92230;
+  transform: scale(1.03);
+}
 /* ESTILOS PARA EL CARRUSEL (ANDRES) SOBRE NOSOTROSS*/
 
 .carousel-item img {
@@ -952,4 +963,33 @@ input {
   background-color: var(--crema-suave);
   rotate: y 180deg;
   padding: 0.5rem;
+}
+
+/* TARJETAS DEL CATÁLOGO (JOHAN) */
+.card-vino {
+  background-color: var(--blanco-marfil);
+  color: var(--vino-tinto);
+  border-radius: 18px;
+  border: 1px solid rgba(58, 7, 19, 0.14);
+  opacity: 1;
+}
+
+.card-vino .card-title,
+.card-vino .card-text,
+.card-vino .precio-vino {
+  color: var(--vino-tinto);
+  opacity: 1;
+}
+
+.card-vino .badge-categoria {
+  display: inline-block;
+  background-color: var(--verde-oliva);
+  color: #ffffff;
+  border-radius: 999px;
+  padding: 0.25rem 1rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 600;
+  opacity: 1;
 }

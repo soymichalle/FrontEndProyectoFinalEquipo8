@@ -62,3 +62,80 @@ export function confirmarAccion(titulo, mensaje) {
     });
 
 }
+
+// * Solicitar correo para recuperar contraseña
+export function solicitarCorreoRecuperacion() {
+
+    return Swal.fire({
+        title: "Recuperar contraseña",
+        text: "Ingresa el correo electrónico asociado a tu cuenta.",
+        input: "email",
+        inputPlaceholder: "correo@ejemplo.com",
+        showCancelButton: true,
+        confirmButtonText: "Continuar",
+        cancelButtonText: "Cancelar",
+        confirmButtonColor: "#A65D45",
+        inputValidator: (valor) => {
+            if (!valor || !valor.trim()) {
+                return "Debes ingresar tu correo electrónico.";
+            }
+        }
+    });
+
+}
+
+// * Solicitar nueva contraseña
+export function solicitarNuevaContrasena() {
+
+    return Swal.fire({
+        title: "Nueva contraseña",
+        html: `
+            <input
+                type="password"
+                id="nueva-contrasena"
+                class="swal2-input"
+                placeholder="Nueva contraseña"
+            >
+
+            <input
+                type="password"
+                id="confirmar-contrasena"
+                class="swal2-input"
+                placeholder="Confirmar contraseña"
+            >
+        `,
+        focusConfirm: false,
+        showCancelButton: true,
+        confirmButtonText: "Actualizar contraseña",
+        cancelButtonText: "Cancelar",
+        confirmButtonColor: "#A65D45",
+
+        preConfirm: () => {
+
+            const nueva = document.querySelector("#nueva-contrasena").value;
+            const confirmar = document.querySelector("#confirmar-contrasena").value;
+
+            if (!nueva || !confirmar) {
+                Swal.showValidationMessage("Debes completar ambos campos.");
+                return false;
+            }
+
+            if (nueva.length < 8) {
+                Swal.showValidationMessage(
+                    "La contraseña debe tener mínimo 8 caracteres."
+                );
+                return false;
+            }
+
+            if (nueva !== confirmar) {
+                Swal.showValidationMessage(
+                    "Las contraseñas no coinciden."
+                );
+                return false;
+            }
+
+            return nueva;
+        }
+    });
+
+}
