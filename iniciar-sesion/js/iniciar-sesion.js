@@ -1,7 +1,7 @@
 
 // * Se importan las librerias requeridas
 import { notificarError, notificarExito, solicitarCorreoRecuperacion, solicitarNuevaContrasena } from "../../js/alertas.js";
-import { buscarUsuarioPorEmail, actualizarContrasenaUsuario } from "./objetojson.js";
+import { buscarUsuarioPorEmail, actualizarContrasenaUsuario } from "./objetoJSON.js";
 
 // * Se definen variables
 const email = document.querySelector("#login-email");
