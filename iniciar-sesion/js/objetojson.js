@@ -1,3 +1,4 @@
+// * Logica de iniciar sesion
 const CLAVE_USUARIOS = "usuarios";
 
 export function obtenerUsuariosRegistrados() {
